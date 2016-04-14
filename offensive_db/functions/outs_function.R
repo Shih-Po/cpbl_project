@@ -1,7 +1,7 @@
 # 抓出局
 outs_function = function(dummy_list, log_row) {
   
-  if (grepl("三出局", log_row)) {
+  if (grepl("三出局", log_row) || grepl("三人出局", log_row) ) {
     dummy_list$rem_type <- "NA"
     dummy_list$base1 <- "NA"
     dummy_list$base2 <- "NA"
