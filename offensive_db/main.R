@@ -33,9 +33,9 @@ for ( i in 1:length(log_file))  {
   c_base2[i] <- dummy_list$base2
   c_base3[i] <- dummy_list$base3
   
-  # renew the current player
+  # renew the current player, to_check
   dummy_list$player <- "NA"
-  
+  dummy_list$to_check <- 0
   
   # call the functions （推進、出局、例外）
   dummy_list <- inning_function(dummy_list, log_row)
