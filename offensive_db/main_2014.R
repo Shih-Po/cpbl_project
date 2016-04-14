@@ -1,0 +1,77 @@
+# set the column vector
+c_numlogfile <- "NA"
+c_numlogrow <- "NA"
+c_inning <- "NA"
+c_rem_type <- "NA"
+c_base1 <- "NA"
+c_base2 <- "NA"
+c_base3 <- "NA"
+c_player <- "NA"
+c_tocheck <- "NA"
+
+for (num_logfile in 1:2) {
+  num_logfile <- num_logfile
+  # mac
+  # log_path <- paste0("/Users/shipo/Documents/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
+  # windows
+  log_path <- paste0("D:/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
+  log_file <- readLines( log_path, encoding = "UTF-8")
+  
+  # 紀錄得分矩陣共24種情境、行動球員名、壘包上球員名, check with this link
+  # https://docs.google.com/spreadsheets/d/1fTBCX7Cgo3JINW0_SKA1qA-GD1GrAtZ1XqllJl6fqDw/edit#gid=1827881277
+  dummy_list <- list(
+    num_logfile = num_logfile, num_logrow = 1, inning = "NA",
+    rem_type = "NA", base1 = "NA", base2 = "NA", base3 = "NA", 
+    player = "NA", 
+    to_check = 0
+  )
+  
+  # load by log_row
+  # log_row <- log_file[3]
+  for ( i in 1:length(log_file))  {
+    log_row <- log_file[i]
+    c_numlogfile[i] <- num_logfile
+    c_numlogrow[i] <- i
+    c_rem_type[i] <- dummy_list$rem_type
+    c_base1[i] <- dummy_list$base1
+    c_base2[i] <- dummy_list$base2
+    c_base3[i] <- dummy_list$base3
+    
+    # renew the current player, to_check
+    dummy_list$player <- "NA"
+    dummy_list$to_check <- 0
+    
+    # call the functions （推進、出局、例外）
+    dummy_list <- inning_function(dummy_list, log_row)
+    
+    # 推進
+    dummy_list <- hit1_function(dummy_list, log_row)
+    dummy_list <- hit2_function(dummy_list, log_row)
+    dummy_list <- hit3_function(dummy_list, log_row)
+    dummy_list <- walk_function(dummy_list, log_row)
+    
+    # 出局
+    dummy_list <- outs_function(dummy_list, log_row)
+    
+    # 例外
+    dummy_list <- check_function(dummy_list, log_row)
+    
+    
+    c_player[i] <- dummy_list$player
+    c_tocheck[i] <- dummy_list$to_check
+    c_inning[i] <- dummy_list$inning
+  }
+    
+}
+
+
+# output
+offensive_db <- data.frame(
+  num_logfile = c_numlogfile, num_logrow = c_numlogrow, inning = c_inning,
+  rem_type = c_rem_type, 
+  base1 = c_base1, base2 = c_base2, base3 = c_base3, 
+  player = c_player,
+  to_check = c_tocheck
+)
+print(offensive_db)
+View(offensive_db)

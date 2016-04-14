@@ -1,5 +1,8 @@
 num_logfile <- 1
-log_path <- paste0("/Users/shipo/Documents/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
+# mac
+# log_path <- paste0("/Users/shipo/Documents/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
+# windows
+log_path <- paste0("D:/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
 log_file <- readLines( log_path, encoding = "UTF-8")
 
 # 紀錄得分矩陣共24種情境、行動球員名、壘包上球員名, check with this link
@@ -42,8 +45,8 @@ for ( i in 1:length(log_file))  {
   
   # 推進
   dummy_list <- hit1_function(dummy_list, log_row)
-  #dummy_list <- hit2_function(dummy_list, log_row)
-  #dummy_list <- hit3_function(dummy_list, log_row)
+  dummy_list <- hit2_function(dummy_list, log_row)
+  dummy_list <- hit3_function(dummy_list, log_row)
   dummy_list <- walk_function(dummy_list, log_row)
   
   # 出局
