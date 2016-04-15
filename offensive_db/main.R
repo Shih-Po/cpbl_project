@@ -1,9 +1,20 @@
+# source all functions, remember add encoding = "UTF-8"
+source_all = function() {
+  c_function_name <- c("check", "hit1", "hit2", "hit3", "inning", "outs", "strikeout", "walk", "homerun")
+  for (i in 1:length(c_function_name)) {
+    # function_path <- paste0("/Users/shipo/Documents/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
+    function_path <- paste0("D:/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
+    source(function_path, encoding = "UTF-8")
+  }
+}
+source_all()
+
+# load log_file
 num_logfile <- 1
-# mac
 # log_path <- paste0("/Users/shipo/Documents/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
-# windows
 log_path <- paste0("D:/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
 log_file <- readLines( log_path, encoding = "UTF-8")
+
 
 # 紀錄得分矩陣共24種情境、行動球員名、壘包上球員名, check with this link
 # https://docs.google.com/spreadsheets/d/1fTBCX7Cgo3JINW0_SKA1qA-GD1GrAtZ1XqllJl6fqDw/edit#gid=1827881277
@@ -13,17 +24,12 @@ dummy_list <- list(
   player = "NA", 
   to_check = 0
 )
- 
-# set the column vector
-c_numlogfile <- "NA"
-c_numlogrow <- "NA"
-c_inning <- "NA"
-c_rem_type <- "NA"
-c_base1 <- "NA"
-c_base2 <- "NA"
-c_base3 <- "NA"
-c_player <- "NA"
-c_tocheck <- "NA"
+
+# initialize the column waiting for vector
+c_numlogfile <- c_numlogrow <- c_numlogrow <- 
+  c_inning <- c_rem_type <- 
+  c_base1 <- c_base2 <- c_base3 <- c_player <- 
+  c_tocheck <- "NA"
 
 # load by log_row
 # log_row <- log_file[3]
