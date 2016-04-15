@@ -13,7 +13,7 @@ dummy_list <- list(
   player = "NA", 
   to_check = 0
 )
-
+ 
 # set the column vector
 c_numlogfile <- "NA"
 c_numlogrow <- "NA"
