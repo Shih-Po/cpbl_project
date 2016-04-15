@@ -27,7 +27,7 @@ dummy_list <- list(
 
 # initialize the column waiting for vector
 c_numlogfile <- c_numlogrow <- c_numlogrow <- 
-  c_inning <- c_rem_type <- 
+  c_inning <- c_remtype <- 
   c_base1 <- c_base2 <- c_base3 <- c_player <- 
   c_tocheck <- "NA"
 
@@ -37,7 +37,7 @@ for ( i in 1:length(log_file))  {
   log_row <- log_file[i]
   c_numlogfile[i] <- num_logfile
   c_numlogrow[i] <- i
-  c_rem_type[i] <- dummy_list$rem_type
+  c_remtype[i] <- dummy_list$rem_type
   c_base1[i] <- dummy_list$base1
   c_base2[i] <- dummy_list$base2
   c_base3[i] <- dummy_list$base3
@@ -68,12 +68,10 @@ for ( i in 1:length(log_file))  {
 }
 
 # output
-offensive_db <- data.frame(
+off_table <- data.frame(
   num_logfile = c_numlogfile, num_logrow = c_numlogrow, inning = c_inning,
-  rem_type = c_rem_type, 
+  rem_type = c_remtype, 
   base1 = c_base1, base2 = c_base2, base3 = c_base3, 
   player = c_player,
   to_check = c_tocheck
 )
-print(offensive_db)
-View(offensive_db)
