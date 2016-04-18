@@ -1,3 +1,4 @@
+library(dplyr)
 # 1. source all functions
 # remember add encoding = "UTF-8"
 source_all = function() {
