@@ -6,7 +6,7 @@ outs_function = function(dummy_list, log_row) {
     dummy_list$base1 <- "NA"
     dummy_list$base2 <- "NA"
     dummy_list$base3 <- "NA"
-    dummy_list$player <- "NA" 
+    dummy_list$player <- substr(log_row, regexpr("：",log_row)-3, regexpr("：",log_row)-1 )  
   } else {
     # do nothing
   }
