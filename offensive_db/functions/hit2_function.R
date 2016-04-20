@@ -33,6 +33,27 @@ hit2_function = function(dummy_list, log_row) {
               
               rem_type <- rem_type + 15 
               
+              #extrabase_function
+              if (grepl("一分",log_row)){
+                  if (base3 != "NA"){
+                    base3 = "NA"
+                    
+                  }else if(base3 == "NA"){
+                    
+                    if (base2 != "NA"){
+                      base2 = "NA"
+                    }
+                    
+                  }else if(base2 == "NA"){
+                    
+                    if (base1 != "NA"){
+                      base1 = "NA"
+                    }
+                  }
+                #2B_3B to 2B
+                rem_type <- rem_type - 12
+              }
+              
             } else if (rem_type %in% c(7,8,9)) {
               # 2B to 2B
               #得一分
@@ -54,12 +75,54 @@ hit2_function = function(dummy_list, log_row) {
               base1 <- "NA"
               rem_type <- rem_type + 6
               
+              #extrabase_function
+              if (grepl("二分",log_row) || grepl("兩分",log_row)){
+                  if (base3 != "NA"){
+                    base3 = "NA"
+                    
+                  } else if(base3 == "NA"){
+                    
+                    if (base2 != "NA") {
+                      base2 = "NA"
+                      
+                    }
+                  } else if(base2 == "NA"){
+                    
+                    if (base1 != "NA") {
+                      base1 = "NA"
+                    }
+                  }
+                  rem_type <- rem_type - 12
+                  #2B_3B to 2B
+              }
+              
             } else if (rem_type %in% c(16,17,18)) {
               # 1B_3B to 2B_3B
               # 得一分
               base3 <- base1
               base2 <- player
               rem_type <- rem_type + 3
+              
+              #extrabase_function
+              if (grepl("二分",log_row) || grepl("兩分",log_row)){
+                if (base3 != "NA"){
+                  base3 = "NA"
+                  
+                } else if(base3 == "NA"){
+                  
+                  if (base2 != "NA") {
+                    base2 = "NA"
+                    
+                  }
+                } else if(base2 == "NA"){
+                  
+                  if (base1 != "NA") {
+                    base1 = "NA"
+                  }
+                }
+                rem_type <- rem_type - 12
+                #2B_3B to 2B
+              }
               
             } else if (rem_type %in% c(19,20,21)) {
               # 2B_3B to 2B
@@ -75,6 +138,27 @@ hit2_function = function(dummy_list, log_row) {
               base2 <- player
               base1 <- "NA"
               rem_type <- rem_type - 3
+              
+              #extrabase_function
+              if (grepl("三分",log_row)){
+                if (base3 != "NA"){
+                  base3 = "NA"
+                  
+                } else if(base3 == "NA"){
+                  
+                  if (base2 != "NA") {
+                    base2 = "NA"
+                    
+                  }
+                } else if(base2 == "NA"){
+                  
+                  if (base1 != "NA") {
+                    base1 = "NA"
+                  }
+                }
+                rem_type <- rem_type - 12
+                #2B_3B to 2B
+              }
             }  
     
        }else {
