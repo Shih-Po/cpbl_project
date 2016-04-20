@@ -80,13 +80,6 @@ hit2_function = function(dummy_list, log_row) {
        }else {
           # dummy_list 不變
        }
-  
-  
-  
-    
-    
-    
-    
   } 
   
   # 將區域變數復原為 dummy_list 傳出
