@@ -3,7 +3,7 @@ library(dplyr)
 # remember add encoding = "UTF-8"
 source_all = function() {
   c_function_name <- c("check", "hit1", "hit2", "hit3", "homerun", "inning", "outs", "strikeout", "walk",
-                       "nomalize_log", "extrabase")
+                       "normalize_log", "extrabase")
   for (i in 1:length(c_function_name)) {
     # function_path <- paste0("/Users/shipo/Documents/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
     function_path <- paste0("D:/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
@@ -17,6 +17,7 @@ main_single_game = function(num_logfile) {
   # log_path <- paste0("/Users/shipo/Documents/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
   log_path <- paste0("D:/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
   log_file <- readLines(log_path, encoding = "UTF-8")
+  log_file <- normalize_log_function(log_file)
   
   # 2-2. set the dummy list
   dummy_list <- list(

@@ -7,16 +7,15 @@ outs_function = function(dummy_list, log_row) {
   base3 <- dummy_list$base3
   player <- dummy_list$player
   
-  if (grepl("一出局", log_row) || grepl("一人出局", log_row)) {
+  if (grepl("出局", log_row)) {
+    
+    player <- substr (log_row, regexpr("：",log_row)-3, regexpr("：",log_row)-1 )
+    
     if(rem_type %in% c(1,4,7,10,13,16,19,22)){
       rem_type <- rem_type + 1 
-    }
-  }else if (grepl("兩出局", log_row) || grepl("兩人出局", log_row)) {
-    if(rem_type %in% c(2,5,8,11,14,17,20,23)){
+    } else if(rem_type %in% c(2,5,8,11,14,17,20,23)){
       rem_type <- rem_type + 1
-    }
-  }else if (grepl("三出局", log_row) || grepl("三人出局", log_row)){
-    if(rem_type %in% c(3,6,9,12,15,18,21,24)){
+    } else if(rem_type %in% c(3,6,9,12,15,18,21,24)){
       rem_type <- "NA"
       base1 <- "NA"
       base2 <- "NA"
