@@ -1,8 +1,6 @@
-
 # 抓出局
 outs_function = function(dummy_list, log_row) {
   
-<<<<<<< HEAD
   rem_type <- dummy_list$rem_type
   base1 <- dummy_list$base1
   base2 <- dummy_list$base2
@@ -25,14 +23,6 @@ outs_function = function(dummy_list, log_row) {
       base3 <- "NA"
       player <- "NA"
     }
-=======
-  if (grepl("三出局", log_row) || grepl("三人出局", log_row) ) {
-    dummy_list$rem_type <- "NA"
-    dummy_list$base1 <- "NA"
-    dummy_list$base2 <- "NA"
-    dummy_list$base3 <- "NA"
-    dummy_list$player <- substr(log_row, regexpr("：",log_row)-3, regexpr("：",log_row)-1 )  
->>>>>>> origin/master
   } else {
     # do nothing
   }
