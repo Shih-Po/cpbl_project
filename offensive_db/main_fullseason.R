@@ -2,7 +2,7 @@ library(dplyr)
 # 1. source all functions
 # remember add encoding = "UTF-8"
 source_all = function() {
-  c_function_name <- c("check", "hit1", "hit2", "hit3", "inning", "outs", "strikeout", "walk", "homerun")
+  c_function_name <- c("check", "hit1", "hit2", "hit3", "homerun", "inning", "outs", "strikeout", "walk")
   for (i in 1:length(c_function_name)) {
     # function_path <- paste0("/Users/shipo/Documents/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
     function_path <- paste0("D:/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
@@ -17,7 +17,7 @@ main_single_game = function(num_logfile) {
   log_path <- paste0("D:/cpbl_project/logs/2014/例行賽", as.character(num_logfile), "(2014org).txt")
   log_file <- readLines(log_path, encoding = "UTF-8")
   
-  # 2-2. dummy list
+  # 2-2. set the dummy list
   dummy_list <- list(
     num_logrow = num_logfile, inning = "NA",
     rem_type = "NA", base1 = "NA", base2 = "NA", base3 = "NA", 
@@ -43,21 +43,23 @@ main_single_game = function(num_logfile) {
   dummy_list$player <- "NA"
   dummy_list$to_check <- 0
   
-  # call the functions （推進、出局、例外）
+  ######## call the functions （推進、出局、例外） #############
   dummy_list <- inning_function(dummy_list, log_row)
   
   # 推進
   dummy_list <- hit1_function(dummy_list, log_row)
   dummy_list <- hit2_function(dummy_list, log_row)
   dummy_list <- hit3_function(dummy_list, log_row)
+  dummy_list <- homerun_function(dummy_list, log_row)
   dummy_list <- walk_function(dummy_list, log_row)
   
   # 出局
   dummy_list <- outs_function(dummy_list, log_row)
+  dummy_list <- strikeout_function(dummy_list, log_row)
   
   # 例外
   dummy_list <- check_function(dummy_list, log_row)
-  
+  ##############################################################
   
   c_player[i] <- dummy_list$player
   c_tocheck[i] <- dummy_list$to_check
@@ -82,3 +84,4 @@ offensive_db <- lapply(1:240, function(num_logfile) {
 }) %>% Reduce(f = rbind)
   
 View(offensive_db)
+summary(offensive_db$to_check)
