@@ -2,11 +2,11 @@ library(dplyr)
 # 1. source all functions
 # remember add encoding = "UTF-8"
 source_all = function() {
-  c_function_name <- c("check", "hit1", "hit2", "hit3", "homerun", "inning", "outs", "strikeout", "walk",
-                       "normalize_log", "extrabase")
+  c_function_name<-list.files("D:/cpbl_project/offensive_db/functions", pattern="*.R")
+  
   for (i in 1:length(c_function_name)) {
     # function_path <- paste0("/Users/shipo/Documents/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
-    function_path <- paste0("D:/cpbl_project/offensive_db/functions/", c_function_name[i], "_function.R")
+    function_path <- paste0("D:/cpbl_project/offensive_db/functions/", c_function_name[i])
     source(function_path, encoding = "UTF-8")
   }
 }
