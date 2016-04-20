@@ -11,10 +11,30 @@ outs_function = function(dummy_list, log_row) {
     
     player <- substr (log_row, regexpr("：",log_row)-3, regexpr("：",log_row)-1 )
     
+    # 0 outs
     if(rem_type %in% c(1,4,7,10,13,16,19,22)){
       rem_type <- rem_type + 1 
+      
+      if (grepl("雙殺", log_row)) {
+        rem_type <- rem_type + 1
+        base1 <- "NA"
+        base2 <- "NA"
+        base3 <- "NA"
+      }
+
+    # 1 outs      
     } else if(rem_type %in% c(2,5,8,11,14,17,20,23)){
       rem_type <- rem_type + 1
+      
+      if (grepl("雙殺", log_row)) {
+        rem_type <- "NA"
+        base1 <- "NA"
+        base2 <- "NA"
+        base3 <- "NA"
+        player <- "NA"
+      }
+
+    # 2 outs            
     } else if(rem_type %in% c(3,6,9,12,15,18,21,24)){
       rem_type <- "NA"
       base1 <- "NA"

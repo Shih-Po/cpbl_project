@@ -21,7 +21,7 @@ check_function = function(dummy_list, log_row) {
   if (grepl("安打",log_row)&&grepl("盜",log_row) || grepl("保送",log_row)&&grepl("盜",log_row)) {
     dummy_list$to_check <- 1
   }
-  if (grepl("雙盜壘", log_row)) { dummy_list$to_check <- 1 }
+  if (grepl("盜", log_row)) { dummy_list$to_check <- 1 }
   
 
   
