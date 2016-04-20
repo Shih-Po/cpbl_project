@@ -9,7 +9,7 @@ homerun_function = function(dummy_list, log_row) {
   player <- dummy_list$player
   
 
-  if (grepl("全壘打", log_row)) {
+  if (grepl("全壘打", log_row) || grepl("砲", log_row)) {
     # home_run start work
     # catch player name
     player <- substr(log_row, regexpr("：",log_row)-3, regexpr("：",log_row)-1 ) 
