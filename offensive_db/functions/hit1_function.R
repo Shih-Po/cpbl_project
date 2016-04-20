@@ -32,23 +32,24 @@ hit1_function = function(dummy_list, log_row) {
             # 1B to 1B_2B
             rem_type <- rem_type + 9
             
-              #if (grel("一分",log_row)){
-              #extrabase_function ();
-              #rem_type <- rem_type
-              #}
-              #1B to 1B
+                if (grepl("一分",log_row)){
+                extrabase_function (dummy_list);
+                rem_type <- rem_type -9
+                }
+                #1B_2B to 1B
             
           } else if (rem_type %in% c(7,8,9)) {
             base3 <- base2
+            base2 <- "NA"
             base1 <- player
             # 2B to 1B_3B
             rem_type <- rem_type + 9
               
-              #if (grel("一分",log_row)){
-              #extrabase_function ();
-              #rem_type <- rem_type -3
-              #}
-              #2B to 1B
+                if (grepl("一分",log_row)){
+                extrabase_function (dummy_list);
+                #rem_type <- rem_type -12
+                }
+                #1B_3B to 1B
             
           } else if (rem_type %in% c(10,11,12)) {
             # 得一分
@@ -64,12 +65,18 @@ hit1_function = function(dummy_list, log_row) {
             # 1B_2B to 1B_2B_3B
             rem_type <- rem_type + 9
               
-              #if (grel("一分",log_row)){
-              #extrabase_function ();
-              #rem_type <- rem_type  
-              #}
-              #1B_2B to 1B_2B 
+                if (grepl("一分",log_row)){
+                  extrabase_function (dummy_list);
+                  rem_type <- rem_type - 9
+                  #1B_2B_3B to 1B_2B 
+                  
+                }else if(grepl("二分",log_row) || grepl("兩分",log_row)){
+                  extrabase_function (dummy_list);
+                  rem_type <- rem_type - 18
+                  #1B_2B_3B to 1B 
+                }
             
+              
           } else if (rem_type %in% c(16,17,18)) {
             # 得一分
             base3 <- "NA"
@@ -85,6 +92,12 @@ hit1_function = function(dummy_list, log_row) {
             base1 <- player
             # 2B_3B to 1B_3B
             rem_type <- rem_type - 3
+                
+                if(grepl("二分",log_row)||grepl("兩分",log_row)){
+                extrabase_function (dummy_list);
+                rem_type <- rem_type - 12
+                #1B_3B to 1B 
+                }
             
           } else if (rem_type %in% c(22,23,24)) {
             #得一分
@@ -92,6 +105,12 @@ hit1_function = function(dummy_list, log_row) {
             base2 <- base1
             base1 <- player
             # 1B_2B_3B to 1B_2B_3B, rem_type no change
+            
+                if (grepl("兩分",log_row) || grepl("二分",log_row)){
+                extrabase_function (dummy_list);
+                rem_type <- rem_type - 9
+                #1B_2B_3B to 1B_2B
+                }
           }
     
       
