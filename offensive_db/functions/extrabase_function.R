@@ -16,4 +16,6 @@ extrabase_function = function(dummy_list, log_row){
             }
         }  
     }
+  return (dummy_list);
 }    
+
