@@ -33,7 +33,7 @@ hit1_function = function(dummy_list, log_row) {
             # 1B to 1B_2B
             rem_type <- rem_type + 9
             
-                if (grepl("一分",log_row)){
+                if (grepl("一分",log_row) || grepl("1分",log_row)){
                   #extrabase_function
                       if (base3 != "NA"){
                         base3 = "NA"
@@ -62,7 +62,7 @@ hit1_function = function(dummy_list, log_row) {
             # 2B to 1B_3B
             rem_type <- rem_type + 9
               
-                if (grepl("一分",log_row)){
+                if (grepl("一分",log_row) || grepl("1分",log_row)){
                   #extrabase_function
                   if (base3 != "NA"){
                     base3 = "NA"
@@ -97,7 +97,7 @@ hit1_function = function(dummy_list, log_row) {
             # 1B_2B to 1B_2B_3B
             rem_type <- rem_type + 9
               
-                if (grepl("一分",log_row)){
+                if (grepl("一分",log_row) || grepl("1分",log_row)){
                   #extrabase_function
                   if (base3 != "NA"){
                     base3 = "NA"
@@ -117,7 +117,7 @@ hit1_function = function(dummy_list, log_row) {
                   rem_type <- rem_type - 9
                   #1B_2B_3B to 1B_2B 
                   
-                }else if(grepl("二分",log_row) || grepl("兩分",log_row)){
+                }else if(grepl("二分",log_row) || grepl("兩分",log_row) || grepl("2分",log_row)){
                   #extrabase_function
                   if (base3 != "NA"){
                     base3 = "NA"
@@ -155,7 +155,7 @@ hit1_function = function(dummy_list, log_row) {
             # 2B_3B to 1B_3B
             rem_type <- rem_type - 3
                 
-                if(grepl("二分",log_row)||grepl("兩分",log_row)){
+                if(grepl("二分",log_row) || grepl("兩分",log_row) || grepl("2分",log_row)){
                   #extrabase_function
                   if (base3 != "NA"){
                     base3 = "NA"
@@ -183,7 +183,7 @@ hit1_function = function(dummy_list, log_row) {
             base1 <- player
             # 1B_2B_3B to 1B_2B_3B, rem_type no change
             
-                if (grepl("兩分",log_row) || grepl("二分",log_row)){
+                if (grepl("兩分",log_row) || grepl("二分",log_row) || grepl("2分",log_row)){
                   #extrabase_function
                   if (base3 != "NA"){
                     base3 = "NA"
