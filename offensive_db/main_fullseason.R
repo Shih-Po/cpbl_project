@@ -57,7 +57,7 @@ main_single_game = function(num_logfile) {
   
   # 出局
   dummy_list <- outs_function(dummy_list, log_row)
-  dummy_list <- strikeout_function(dummy_list, log_row)
+  #dummy_list <- strikeout_function(dummy_list, log_row)
   
   # 例外
   dummy_list <- check_function(dummy_list, log_row)
