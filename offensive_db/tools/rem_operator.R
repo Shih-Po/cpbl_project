@@ -1,5 +1,5 @@
 library(dplyr)
-off_db_file <- "/Users/shipo/Documents/cpbl_project/temp/output042203_utf8.csv" 
+off_db_file <- "/Users/shipo/Documents/cpbl_project/temp/output042205_utf8.csv" 
 off_db <- read.csv(off_db_file)
 
 # 找壘包出局情境為 1~24, 且後續得分為 0~100 的資料列
