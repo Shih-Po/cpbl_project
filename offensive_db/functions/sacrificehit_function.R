@@ -18,11 +18,13 @@ sacrificehit_function = function(dummy_list, log_row) {
       if (rem_type %in% c(4,5)) {
       # 1B to 2B
       base2 <- base1
+      base1 <- "NA"
       rem_type <- rem_type + 3
       
     } else if (rem_type %in% c(7,8)) {
       # 2B to 3B
       base3 <- base2
+      base2 <- "NA"
       rem_type <- rem_type + 3
       
     } else if (rem_type %in% c(10,11)) {
