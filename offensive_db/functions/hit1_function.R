@@ -50,10 +50,18 @@ hit1_function = function(dummy_list, log_row) {
                           base1 = "NA"
                         }
                       }
-                    
+                #1B_2B to 1B
                 rem_type <- rem_type -9
                 }
-                #1B_2B to 1B
+            
+            #如果壘上跑者積極跑壘
+            if(grepl("一、三",log_row)){
+              base3 <- base2
+              base2 <- "NA"
+              #1B_2B to 1B_3B
+              rem_type <- rem_type + 3
+            }
+            
             
           } else if (rem_type %in% c(7,8,9)) {
             base3 <- base2
