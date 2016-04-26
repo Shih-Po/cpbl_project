@@ -19,40 +19,47 @@ homerun_function = function(dummy_list, log_row) {
         # 得一分
         # 1B,2B,3B,rem_type no change
         player
+        
       } else if (rem_type %in% c(4,5,6)) {
         # 得兩分
         # 1B to empty
-        player
+        base1 <- "NA"
         rem_type <- rem_type - 3 
+        
       } else if (rem_type %in% c(7,8,9)) {
         # 得兩分
         # 2B to empty
-        player
+        base2 <- "NA"
         rem_type <- rem_type - 6
+        
       } else if (rem_type %in% c(10,11,12)) {
         # 得兩分
         # 3B to empty
-        player
+        base3 <- "NA"
         rem_type <- rem_type - 9
+        
       } else if (rem_type %in% c(13,14,15)) {
         # 得三分
         # 1B_2B to empty
-        player
+        base1 <- base2 <- "NA"
         rem_type <- rem_type - 12
+        
       } else if (rem_type %in% c(16,17,18)) {
         # 得三分
         # 1B_3B to empty
-        player
+        base1 <- base3 <- "NA"
         rem_type <- rem_type - 15
+        
       } else if (rem_type %in% c(19,20,21)) {
         # 得三分
         # 2B_3B to empty
-        player
+        base2 <- base3 <- "NA"
         rem_type <- rem_type - 18
+        
       } else if (rem_type %in% c(22,23,24)) {
         # 得四分
         # 1B_2B_3B to empty
-        player
+        base1 <- base2 <- base3 <- "NA"
         rem_type <- rem_type - 21
       }
     
