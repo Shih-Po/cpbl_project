@@ -80,18 +80,20 @@ for (i in 1:nrow(cpbl_table)){
         total3_0_other_3rd_player <- table(total3_0_other_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_0_other_score = total3_0_other_score + 1 
         total3_0_other_score_player <- c(total3_0_other_score_player,table_row$base1)
         total3_0_other_score_player <- table(total3_0_other_score_player)
         
       }
-    }else
+    }
     
     #零出局-左
     if (table_row$out == "零出局" && table_row$direction == "左"){
       total3_0_left = total3_0_left + 1 
+      
+      #print(table_row)
       
       i = i + 1
       table_row_1 <- cpbl_table[i,]
@@ -114,14 +116,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_0_left_3rd_player <- table(total3_0_left_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_0_left_score = total3_0_left_score + 1 
         total3_0_left_score_player <- c(total3_0_left_score_player,table_row$base1)
         total3_0_left_score_player <- table(total3_0_left_score_player)
         
       }
-    }else
+    }
     
     #零出局-中
     if (table_row$out == "零出局" && table_row$direction == "中"){
@@ -148,14 +150,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_0_center_3rd_player <- table(total3_0_center_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_0_center_score = total3_0_center_score + 1 
         total3_0_center_score_player <- c(total3_0_center_score_player,table_row$base1)
         total3_0_center_score_player <- table(total3_0_center_score_player)
         
       }
-    }else
+    }
     
     #零出局-右
     if (table_row$out == "零出局" && table_row$direction == "右"){
@@ -182,14 +184,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_0_right_3rd_player <- table(total3_0_right_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_0_right_score = total3_0_right_score + 1 
         total3_0_right_score_player <- c(total3_0_right_score_player,table_row$base1)
         total3_0_right_score_player <- table(total3_0_right_score_player)
         
       }
-    }else
+    }
     
     #ㄧ出局-內
     if (table_row$out == "一出局" && table_row$direction == "內"){
@@ -216,14 +218,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_1_other_3rd_player <- table(total3_1_other_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_1_other_score = total3_1_other_score + 1 
         total3_1_other_score_player <- c(total3_1_other_score_player,table_row$base1)
         total3_1_other_score_player <- table(total3_1_other_score_player)
         
       }
-    }else
+    }
     
     #一出局-左
     if (table_row$out == "一出局" && table_row$direction == "左"){
@@ -250,14 +252,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_1_left_3rd_player <- table(total3_1_left_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_1_left_score = total3_1_left_score + 1 
         total3_1_left_score_player <- c(total3_1_left_score_player,table_row$base1)
         total3_1_left_score_player <- table(total3_1_left_score_player)
         
       }
-    }else
+    }
     
     #一出局-中
     if (table_row$out == "一出局" && table_row$direction == "中"){
@@ -284,14 +286,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_1_center_3rd_player <- table(total3_1_center_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_1_center_score = total3_1_center_score + 1 
         total3_1_center_score_player <- c(total3_1_center_score_player,table_row$base1)
         total3_1_center_score_player <- table(total3_1_center_score_player)
         
       }
-    }else
+    }
     
     #一出局-右
     if (table_row$out == "一出局" && table_row$direction == "右"){
@@ -318,14 +320,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_1_right_3rd_player <- table(total3_1_right_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_1_right_score = total3_1_right_score + 1 
         total3_1_right_score_player <- c(total3_1_right_score_player,table_row$base1)
         total3_1_right_score_player <- table(total3_1_right_score_player)
         
       }
-    }else
+    }
     
     #二出局-內
     if (table_row$out == "二出局" && table_row$direction == "內"){
@@ -359,7 +361,7 @@ for (i in 1:nrow(cpbl_table)){
         total3_2_other_score_player <- table(total3_2_other_score_player)
         
       }
-    }else
+    }
     
     #二出局-左
     if (table_row$out == "二出局" && table_row$direction == "左"){
@@ -386,14 +388,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_2_left_3rd_player <- table(total3_2_left_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_2_left_score = total3_2_left_score + 1 
         total3_2_left_score_player <- c(total3_2_left_score_player,table_row$base1)
         total3_2_left_score_player <- table(total3_2_left_score_player)
         
       }
-    }else
+    }
     
     #二出局-中
     if (table_row$out == "二出局" && table_row$direction == "中"){
@@ -420,14 +422,14 @@ for (i in 1:nrow(cpbl_table)){
         total3_2_center_3rd_player <- table(total3_2_center_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_2_center_score = total3_2_center_score + 1 
         total3_2_center_score_player <- c(total3_2_center_score_player,table_row$base1)
         total3_2_center_score_player <- table(total3_2_center_score_player)
         
       }
-    }else
+    }
     
     #二出局-右
     if (table_row$out == "二出局" && table_row$direction == "右"){
@@ -454,7 +456,7 @@ for (i in 1:nrow(cpbl_table)){
         total3_2_right_3rd_player <- table(total3_2_right_3rd_player)
         
         #跑者得分
-      }else if(table_row_1$home != home || table_row_1$away != away){
+      }else if(is.na(table_row_1$base1) == TRUE && out == table_row_1$out){
         
         total3_2_right_score = total3_2_right_score + 1 
         total3_2_right_score_player <- c(total3_2_right_score_player,table_row$base1)
@@ -563,13 +565,13 @@ right0 <- list(Outs_Where = "0-other", Opp=opp0right, To3rd=prob0right_3rd, Scor
 
 other1 <- list(Outs_Where = "1-other", Opp=opp1other, To3rd=prob1other_3rd, Score=prob1other_score, OA=prob1other_OA)
 left1 <- list(Outs_Where = "1-left", Opp=opp1left, To3rd=prob1left_3rd, Score=prob1left_score, OA=prob1left_OA)
-center1 <- list(Outs_Where = "0-center", Opp=opp1center, To3rd=prob1center_3rd, Score=prob1center_score, OA=prob1center_OA)
-right1 <- list(Outs_Where = "0-other", Opp=opp1right, To3rd=prob1right_3rd, Score=prob1right_score, OA=prob1right_OA)
+center1 <- list(Outs_Where = "1-center", Opp=opp1center, To3rd=prob1center_3rd, Score=prob1center_score, OA=prob1center_OA)
+right1 <- list(Outs_Where = "1-other", Opp=opp1right, To3rd=prob1right_3rd, Score=prob1right_score, OA=prob1right_OA)
 
 other2 <- list(Outs_Where = "2-other", Opp=opp2other, To3rd=prob2other_3rd, Score=prob2other_score, OA=prob2other_OA)
 left2 <- list(Outs_Where = "2-left", Opp=opp2left, To3rd=prob2left_3rd, Score=prob2left_score, OA=prob2left_OA)
-center2 <- list(Outs_Where = "0-center", Opp=opp2center, To3rd=prob2center_3rd, Score=prob2center_score, OA=prob2center_OA)
-right2 <- list(Outs_Where = "0-other", Opp=opp2right, To3rd=prob2right_3rd, Score=prob2right_score, OA=prob2right_OA)
+center2 <- list(Outs_Where = "2-center", Opp=opp2center, To3rd=prob2center_3rd, Score=prob2center_score, OA=prob2center_OA)
+right2 <- list(Outs_Where = "2-other", Opp=opp2right, To3rd=prob2right_3rd, Score=prob2right_score, OA=prob2right_OA)
 
 extrabase3_table = rbind(other0, left0, center0, right0,other1, left1, center1, right1,other2, left2, center2, right2)
-View(extrabase3_table)
+View(extrabase3_table_test)
