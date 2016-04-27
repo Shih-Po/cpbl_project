@@ -55,7 +55,7 @@ hit1_function = function(dummy_list, log_row) {
                 }
             
             #如果壘上跑者積極跑壘
-            if(grepl("一、三",log_row)){
+            if(grepl("一、三",log_row) || grepl("一三",log_row)){
               base3 <- base2
               base2 <- "NA"
               #1B_2B to 1B_3B
@@ -154,6 +154,14 @@ hit1_function = function(dummy_list, log_row) {
             base1 <- player
             # 1B_3B to 1B_2B
             rem_type <- rem_type - 3
+            
+            #如果壘上跑者積極跑壘
+            if(grepl("一、三",log_row) || grepl("一三",log_row)){
+              base3 <- base2
+              base2 <- "NA"
+              #1B_2B to 1B_3B
+              rem_type <- rem_type + 3
+            }
             
           } else if (rem_type %in% c(19,20,21)) {
             #得一分
