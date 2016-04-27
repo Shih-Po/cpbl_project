@@ -1,510 +1,508 @@
-cpbl_table <- read.csv(file("C:/Users/Student/Desktop/output042303.csv", encoding="big5"), header = TRUE, sep = ",",stringsAsFactors = FALSE)
+cpbl_table <- read.csv(file("/Users/farmereric/Documents/Others/output042303.csv", encoding="big5"), header = TRUE, sep = ",",stringsAsFactors = FALSE)
 # cpbl_player <- read.table(file("C:/Users/Student/Desktop/CPBL/batter.csv", encoding="UTF-8"), header = TRUE, sep = ",",stringsAsFactors = FALSE)
 # player_library <- unique(cpbl_player$name)
 
 total1 <- 0
 
 #零出局
-total1_1 <- total1_1_1 <- total1_1_2 <- total1_1_3 <- total1_1_4 <- 0
-total1_2 <- total1_2_1 <- total1_2_2 <- total1_2_3 <- total1_2_4 <- 0
-total1_3 <- total1_3_1 <- total1_3_2 <- total1_3_3 <- total1_3_4 <- 0
-total1_4 <- total1_4_1 <- total1_4_2 <- total1_4_3 <- total1_4_4 <- 0
+total1_0_other <- total1_0_other_OA <- total1_0_other_2nd <- total1_0_other_3rd <- total1_0_other_score <- 0
+total1_0_left <- total1_0_left_OA <- total1_0_left_2nd <- total1_0_left_3rd <- total1_0_left_score <- 0
+total1_0_center <- total1_0_center_OA <- total1_0_center_2nd <- total1_0_center_3rd <- total1_0_center_score <- 0
+total1_0_right <- total1_0_right_OA <- total1_0_right_2nd <- total1_0_right_3rd <- total1_0_right_score <- 0
 
-total1_1_1_player <- total1_1_2_player <- total1_1_3_player <- total1_1_4_player <- 
-total1_2_1_player <- total1_2_2_player <- total1_2_3_player <- total1_2_4_player <- 
-total1_3_1_player <- total1_3_2_player <- total1_3_3_player <- total1_3_4_player <- 
-total1_4_1_player <- total1_4_2_player <- total1_4_3_player <- total1_4_4_player <- NULL
+total1_0_other_OA_player <- total1_0_other_2nd_player <- total1_0_other_3rd_player <- total1_0_other_score_player <- 
+total1_0_left_OA_player <- total1_0_left_2nd_player <- total1_0_left_3rd_player <- total1_0_left_score_player <- 
+total1_0_center_OA_player <- total1_0_center_2nd_player <- total1_0_center_3rd_player <- total1_0_center_score_player <- 
+total1_0_right_OA_player <- total1_0_right_2nd_player <- total1_0_right_3rd_player <- total1_0_right_score_player <- NULL
+
 #一出局
-total2_1 <- total2_1_1 <- total2_1_2 <- total2_1_3 <- total2_1_4 <- 0
-total2_2 <- total2_2_1 <- total2_2_2 <- total2_2_3 <- total2_2_4 <- 0
-total2_3 <- total2_3_1 <- total2_3_2 <- total2_3_3 <- total2_3_4 <- 0
-total2_4 <- total2_4_1 <- total2_4_2 <- total2_4_3 <- total2_4_4 <- 0
+total1_1_other <- total1_1_other_OA <- total1_1_other_2nd <- total1_1_other_3rd <- total1_1_other_score <- 0
+total1_1_left <- total1_1_left_OA <- total1_1_left_2nd <- total1_1_left_3rd <- total1_1_left_score <- 0
+total1_1_center <- total1_1_center_OA <- total1_1_center_2nd <- total1_1_center_3rd <- total1_1_center_score <- 0
+total1_1_right <- total1_1_right_OA <- total1_1_right_2nd <- total1_1_right_3rd <- total1_1_right_score <- 0
 
-total2_1_1_player <- total2_1_2_player <- total2_1_3_player <- total2_1_4_player <- 
-total2_2_1_player <- total2_2_2_player <- total2_2_3_player <- total2_2_4_player <- 
-total2_3_1_player <- total2_3_2_player <- total2_3_3_player <- total2_3_4_player <- 
-total2_4_1_player <- total2_4_2_player <- total2_4_3_player <- total2_4_4_player <- NULL
+total1_1_other_OA_player <- total1_1_other_2nd_player <- total1_1_other_3rd_player <- total1_1_other_score_player <- 
+total1_1_left_OA_player <- total1_1_left_2nd_player <- total1_1_left_3rd_player <- total1_1_left_score_player <- 
+total1_1_center_OA_player <- total1_1_center_2nd_player <- total1_1_center_3rd_player <- total1_1_center_score_player <- 
+total1_1_right_OA_player <- total1_1_right_2nd_player <- total1_1_right_3rd_player <- total1_1_right_score_player <- NULL
+
 #兩出局
-total3_1 <- total3_1_1 <- total3_1_2 <- total3_1_3 <- total3_1_4 <- 0
-total3_2 <- total3_2_1 <- total3_2_2 <- total3_2_3 <- total3_2_4 <- 0
-total3_3 <- total3_3_1 <- total3_3_2 <- total3_3_3 <- total3_3_4 <- 0
-total3_4 <- total3_4_1 <- total3_4_2 <- total3_4_3 <- total3_4_4 <- 0
+total1_2_other <- total1_2_other_OA <- total1_2_other_2nd <- total1_2_other_3rd <- total1_2_other_score <- 0
+total1_2_left <- total1_2_left_OA <- total1_2_left_2nd <- total1_2_left_3rd <- total1_2_left_score <- 0
+total1_2_center <- total1_2_center_OA <- total1_2_center_2nd <- total1_2_center_3rd <- total1_2_center_score <- 0
+total1_2_right <- total1_2_right_OA <- total1_2_right_2nd <- total1_2_right_3rd <- total1_2_right_score <- 0
 
-total3_1_1_player <- total3_1_2_player <- total3_1_3_player <- total3_1_4_player <- 
-total3_2_1_player <- total3_2_2_player <- total3_2_3_player <- total3_2_4_player <- 
-total3_3_1_player <- total3_3_2_player <- total3_3_3_player <- total3_3_4_player <- 
-total3_4_1_player <- total3_4_2_player <- total3_4_3_player <- total3_4_4_player <- NULL
+total1_2_other_OA_player <- total1_2_other_2nd_player <- total1_2_other_3rd_player <- total1_2_other_score_player <- 
+total1_2_left_OA_player <- total1_2_left_2nd_player <- total1_2_left_3rd_player <- total1_2_left_score_player <- 
+total1_2_center_OA_player <- total1_2_center_2nd_player <- total1_2_center_3rd_player <- total1_2_center_score_player <- 
+total1_2_right_OA_player <- total1_2_right_2nd_player <- total1_2_right_3rd_player <- total1_2_right_score_player <- NULL
 
 
 for (i in 1:nrow(cpbl_table)){
   table_row <- cpbl_table[i,]
   # j <- i + 1
-  if (is.na(table_row$base1) !=TRUE && is.na(table_row$base2) == TRUE && is.na(table_row$base3) == TRUE &&
+  if (is.na(table_row$base1) !=TRUE && is.na(table_row$base2) == TRUE && 
       table_row$result %in% c("一壘安打", "左外野安打", "中外野安打", "右外野安打", 
                               "穿越安打", "平飛安打", "內野安打", "中間方向安打", "德州安打")){
     
     total1 = total1 + 1 
     
     if (table_row$out == "零出局" && table_row$direction == "內"){
-      total1_1 = total1_1 + 1 
+      total1_0_other = total1_0_other + 1 
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total1_1_1 = total1_1_1 + 1 
-        total1_1_1_player <- c(total1_1_1_player,table_row$base1)
-        total1_1_1_players <- table(total1_1_1_player)
-        
-        # print(table_row$base1)
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_1_2 = total1_1_2 + 1 
-        total1_1_2_player <- c(total1_1_2_player,table_row$base1)
-        total1_1_2_players <- table(total1_1_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_1_3 = total1_1_3 + 1 
-        total1_1_3_player <- c(total1_1_3_player,table_row$base1)
-        total1_1_3_players <- table(total1_1_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_1_4 = total1_1_4 + 1 
-        total1_1_4_player <- c(total1_1_4_player,table_row$base1)
-        total1_1_4_players <- table(total1_1_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE) {
+            
+            total1_0_other_2nd = total1_0_other_2nd + 1 
+            total1_0_other_2nd_player <- c(total1_0_other_2nd_player,table_row$base1)
+            #total1_1_2_player <- table(total1_0_other_2nd_player)
+            
+            #print("跑者上二壘")
+            
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_0_other_3rd = total1_0_other_3rd + 1 
+            total1_0_other_3rd_player <- c(total1_0_other_3rd_player,table_row$base1)
+            #total1_1_3_player <- table(total1_0_other_3rd_player)
+            
+            #print("跑者上三壘")
+            
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_0_other_score = total1_0_other_score + 1 
+            total1_0_other_score_player <- c(total1_0_other_score_player,table_row$base1)
+            #total1_1_4_player <- table(total1_0_other_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_0_other_OA = total1_0_other_OA + 1 
+            total1_0_other_OA_player <- c(total1_0_other_OA_player,table_row$base1)
+            #total1_1_1_player <- table(total1_0_other_OA_player)
+            
+             
+            #print("跑者出局")
+            
+          }
       
     }else if(table_row$out == "零出局" && table_row$direction == "左"){
-      total1_2 = total1_2 + 1
+      
+      total1_0_left = total1_0_left + 1
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total1_2_1 = total1_2_1 + 1 
-        total1_2_1_player <- c(total1_2_1_player,table_row$base1)
-        total1_2_1_players <- table(total1_2_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_2_2 = total1_2_2 + 1
-        total1_2_2_player <- c(total1_2_2_player,table_row$base1)
-        total1_2_2_players <- table(total1_2_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_2_3 = total1_2_3 + 1 
-        total1_2_3_player <- c(total1_2_3_player,table_row$base1)
-        total1_2_3_players <- table(total1_2_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_2_4 = total1_2_4 + 1
-        total1_2_4_player <- c(total1_2_4_player,table_row$base1)
-        total1_2_4_players <- table(total1_2_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_0_left_2nd = total1_0_left_2nd + 1
+            total1_0_left_2nd_player <- c(total1_0_left_2nd_player,table_row$base1)
+            
+            #total1_2_2_player <- table(total1_0_left_2nd_player)
+            
+            #print("跑者上二壘")
+            
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_0_left_3rd = total1_0_left_3rd + 1 
+            total1_0_left_3rd_player <- c(total1_0_left_3rd_player,table_row$base1)
+            #total1_2_3_player <- table(total1_0_left_3rd_player)
+            
+            #print("跑者上三壘")
+            
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_0_left_score = total1_0_left_score + 1
+            total1_0_left_score_player <- c(total1_0_left_score_player,table_row$base1)
+           #total1_2_4_player <- table(total1_0_left_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_0_left_OA = total1_0_left_OA + 1 
+            total1_0_left_OA_player <- c(total1_0_left_OA_player,table_row$base1)
+            #total1_2_1_player <- table(total1_0_left_OA_player)
+            
+            #print("跑者出局")
+            
+          }
       
     }else if(table_row$out == "零出局" && table_row$direction == "中"){
-      total1_3 = total1_3 + 1 
+      total1_0_center = total1_0_center + 1 
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total1_3_1 = total1_3_1 + 1
-        total1_3_1_player <- c(total1_3_1_player,table_row$base1)
-        total1_3_1_players <- table(total1_3_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_3_2 = total1_3_2 + 1 
-        total1_3_2_player <- c(total1_3_2_player,table_row$base1)
-        total1_3_2_players <- table(total1_3_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_3_3 = total1_3_3 + 1
-        total1_3_3_player <- c(total1_3_3_player,table_row$base1)
-        total1_3_3_players <- table(total1_3_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_3_4 = total1_3_4 + 1
-        total1_3_4_player <- c(total1_3_4_player,table_row$base1)
-        total1_3_4_players <- table(total1_3_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_0_center_2nd = total1_0_center_2nd + 1 
+            total1_0_center_2nd_player <- c(total1_0_center_2nd_player,table_row$base1)
+            #total1_3_2_player <- table(total1_0_center_2nd_player)
+            
+            #print("跑者上二壘")
+            
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_0_center_3rd = total1_0_center_3rd + 1
+            total1_0_center_3rd_player <- c(total1_0_center_3rd_player,table_row$base1)
+            #total1_3_3_player <- table(total1_0_center_3rd_player)
+            
+            #print("跑者上三壘")
+            
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_0_center_score = total1_0_center_score + 1
+            total1_0_center_score_player <- c(total1_0_center_score_player,table_row$base1)
+            #total1_3_4_player <- table(total1_0_center_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+           
+            total1_0_center_OA = total1_0_center_OA + 1
+            total1_0_center_OA_player <- c(total1_0_center_OA_player,table_row$base1)
+            #total1_3_1_player <- table(total1_0_center_OA_player)
+            
+            #print("跑者出局")
+            
+          }
       
     }else if(table_row$out == "零出局" && table_row$direction == "右"){
-      total1_4 = total1_4 + 1
+      
+      total1_0_right = total1_0_right + 1
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total1_4_1 = total1_4_1 + 1
-        total1_4_1_player <- c(total1_4_1_player,table_row$base1)
-        total1_4_1_players <- table(total1_4_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_4_2 = total1_4_2 + 1
-        total1_4_2_player <- c(total1_4_2_player,table_row$base1)
-        total1_4_2players <- table(total1_4_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_4_3 = total1_4_3 + 1  
-        total1_4_3_player <- c(total1_4_3_player,table_row$base1)
-        total1_4_3_players <- table(total1_4_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total1_4_4 = total1_4_4 + 1
-        total1_4_4_player <- c(total1_4_4_player,table_row$base1)
-        total1_4_4_players <- table(total1_4_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_0_right_2nd = total1_0_right_2nd + 1
+            total1_0_right_2nd_player <- c(total1_0_right_2nd_player,table_row$base1)
+            #total1_4_2player <- table(total1_0_right_2nd_player)
+            
+            #print("跑者上二壘")
+            
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_0_right_3rd = total1_0_right_3rd + 1  
+            total1_0_right_3rd_player <- c(total1_0_right_3rd_player,table_row$base1)
+            #total1_4_3_player <- table(total1_0_right_3rd_player)
+            
+            #print("跑者上三壘")
+            
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_0_right_score = total1_0_right_score + 1
+            total1_0_right_score_player <- c(total1_0_right_score_player,table_row$base1)
+            #total1_4_4_player <- table(total1_0_right_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_0_right_OA = total1_0_right_OA + 1
+            total1_0_right_OA_player <- c(total1_0_right_OA_player,table_row$base1)
+            #total1_0_right_OA_players <- table(total1_0_right_OA_player)
+            
+            #print("跑者出局")
+            
+          }
     }
     
     if (table_row$out == "一出局" && table_row$direction == "內"){
-      total2_1 = total2_1 + 1 
+      total1_1_other = total1_1_other + 1 
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total2_1_1 = total2_1_1 + 1 
-        total2_1_1_player <- c(total2_1_1_player,table_row$base1)
-        total2_1_1_players <- table(total2_1_1_player)
-        
-        # print(table_row$base1)
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_1_2 = total2_1_2 + 1 
-        total2_1_2_player <- c(total2_1_2_player,table_row$base1)
-        total2_1_2_players <- table(total2_1_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_1_3 = total2_1_3 + 1 
-        total2_1_3_player <- c(total2_1_3_player,table_row$base1)
-        total2_1_3_players <- table(total2_1_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_1_4 = total2_1_4 + 1 
-        total2_1_4_player <- c(total2_1_4_player,table_row$base1)
-        total2_1_4_players <- table(total2_1_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_1_other_2nd = total1_1_other_2nd + 1 
+            total1_1_other_2nd_player <- c(total1_1_other_2nd_player,table_row$base1)
+            #total2_1_2_player <- table(total1_1_other_2nd_player)
+            
+            #print("跑者上二壘")
+            
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_1_other_3rd = total1_1_other_3rd + 1 
+            total1_1_other_3rd_player <- c(total1_1_other_3rd_player,table_row$base1)
+            #total2_1_3_player <- table(total1_1_other_3rd_player)
+            
+            #print("跑者上三壘")
+            
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_1_other_score = total1_1_other_score + 1 
+            total1_1_other_score_player <- c(total1_1_other_score_player,table_row$base1)
+            #total2_1_4_player <- table(total1_1_other_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_1_other_OA = total1_1_other_OA + 1 
+            total1_1_other_OA_player <- c(total1_1_other_OA_player,table_row$base1)
+            #total2_1_1_player <- table(total1_1_other_OA_player)
+            
+             
+            #print("跑者出局")
+            
+          }
       
     }else if(table_row$out == "一出局" && table_row$direction == "左"){
-      total2_2 = total2_2 + 1
+      total1_1_left = total1_1_left + 1
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total2_2_1 = total2_2_1 + 1 
-        total2_2_1_player <- c(total2_2_1_player,table_row$base1)
-        total2_2_1_players <- table(total2_2_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_2_2 = total2_2_2 + 1
-        total2_2_2_player <- c(total2_2_2_player,table_row$base1)
-        total2_2_2_players <- table(total2_2_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_2_3 = total2_2_3 + 1 
-        total2_2_3_player <- c(total2_2_3_player,table_row$base1)
-        total2_2_3_players <- table(total2_2_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_2_4 = total2_2_4 + 1
-        total2_2_4_player <- c(total2_2_4_player,table_row$base1)
-        total2_2_4_players <- table(total2_2_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_1_left_2nd = total1_1_left_2nd + 1
+            total1_1_left_2nd_player <- c(total1_1_left_2nd_player,table_row$base1)
+            #total2_2_2_player <- table(total1_1_left_2nd_player)
+            
+            #print("跑者上二壘")
+            
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_1_left_3rd = total1_1_left_3rd + 1 
+            total1_1_left_3rd_player <- c(total1_1_left_3rd_player,table_row$base1)
+            #total2_2_3_player <- table(total1_1_left_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_1_left_score = total1_1_left_score + 1
+            total1_1_left_score_player <- c(total1_1_left_score_player,table_row$base1)
+            #total2_2_4_player <- table(total1_1_left_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_1_left_OA = total1_1_left_OA + 1 
+            total1_1_left_OA_player <- c(total1_1_left_OA_player,table_row$base1)
+            #total2_2_1_player <- table(total1_1_left_OA_player)
+            
+            #print("跑者出局")
+            
+          }
       
     }else if(table_row$out == "一出局" && table_row$direction == "中"){
-      total2_3 = total2_3 + 1 
+      total1_1_center = total1_1_center + 1 
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total2_3_1 = total2_3_1 + 1
-        total2_3_1_player <- c(total2_3_1_player,table_row$base1)
-        total2_3_1_players <- table(total2_3_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_3_2 = total2_3_2 + 1 
-        total2_3_2_player <- c(total2_3_2_player,table_row$base1)
-        total2_3_2_players <- table(total2_3_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_3_3 = total2_3_3 + 1
-        total2_3_3_player <- c(total2_3_3_player,table_row$base1)
-        total2_3_3_players <- table(total2_3_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_3_4 = total2_3_4 + 1
-        total2_3_4_player <- c(total2_3_4_player,table_row$base1)
-        total2_3_4_players <- table(total2_3_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_1_center_2nd = total1_1_center_2nd + 1
+            total1_1_center_2nd_player <- c(total1_1_center_2nd_player,table_row$base1)
+            #total2_3_2_player <- table(total1_1_center_2nd_player)
+            
+            #print("跑者上二壘")
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_1_center_3rd = total1_1_center_3rd + 1
+            total1_1_center_3rd_player <- c(total1_1_center_3rd_player,table_row$base1)
+            #total2_3_3_player <- table(total1_1_center_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_1_center_score = total1_1_center_score + 1
+            total1_1_center_score_player <- c(total1_1_center_score_player,table_row$base1)
+            #total2_3_4_player <- table(total1_1_center_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_1_center_OA = total1_1_center_OA + 1
+            total1_1_center_OA_player <- c(total1_1_center_OA_player,table_row$base1)
+            #total2_3_1_player <- table(total1_1_center_OA_player)
+            
+            #print("跑者出局")
+          }
       
     }else if(table_row$out == "一出局" && table_row$direction == "右"){
-      total2_4 = total2_4 + 1
+      total1_1_right = total1_1_right + 1
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total2_4_1 = total2_4_1 + 1
-        total2_4_1_player <- c(total2_4_1_player,table_row$base1)
-        total2_4_1_players <- table(total2_4_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_4_2 = total2_4_2 + 1
-        total2_4_2_player <- c(total2_4_2_player,table_row$base1)
-        total2_4_2players <- table(total2_4_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_4_3 = total2_4_3 + 1  
-        total2_4_3_player <- c(total2_4_3_player,table_row$base1)
-        total2_4_3_players <- table(total2_4_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total2_4_4 = total2_4_4 + 1
-        total2_4_4_player <- c(total2_4_4_player,table_row$base1)
-        total2_4_4_players <- table(total2_4_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_1_right_2nd = total1_1_right_2nd + 1
+            total1_1_right_2nd_player <- c(total1_1_right_2nd_player,table_row$base1)
+            #total2_4_2player <- table(total1_1_right_2nd_player)
+            
+            #print("跑者上二壘")
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_1_right_3rd = total1_1_right_3rd + 1
+            total1_1_right_3rd_player <- c(total1_1_right_3rd_player,table_row$base1)
+            #total2_4_3_player <- table(total1_1_right_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_1_right_score = total1_1_right_score + 1
+            total1_1_right_score_player <- c(total1_1_right_score_player,table_row$base1)
+            #total2_4_4_player <- table(total1_1_right_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_1_right_OA = total1_1_right_OA + 1
+            total1_1_right_OA_player <- c(total1_1_right_OA_player,table_row$base1)
+            #total2_4_1_player <- table(total1_1_right_OA_player)
+            
+            #print("跑者出局")
+          }
     }
     
     if (table_row$out == "二出局" && table_row$direction == "內"){
-      total3_1 = total3_1 + 1 
+      total1_2_other = total1_2_other + 1 
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total3_1_1 = total3_1_1 + 1 
-        total3_1_1_player <- c(total3_1_1_player,table_row$base1)
-        total3_1_1_players <- table(total3_1_1_player)
-        
-        # print(table_row$base1)
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_1_2 = total3_1_2 + 1 
-        total3_1_2_player <- c(total3_1_2_player,table_row$base1)
-        total3_1_2_players <- table(total3_1_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_1_3 = total3_1_3 + 1 
-        total3_1_3_player <- c(total3_1_3_player,table_row$base1)
-        total3_1_3_players <- table(total3_1_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_1_4 = total3_1_4 + 1 
-        total3_1_4_player <- c(total3_1_4_player,table_row$base1)
-        total3_1_4_players <- table(total3_1_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_2_other_2nd = total1_2_other_2nd + 1 
+            total1_2_other_2nd_player <- c(total1_2_other_2nd_player,table_row$base1)
+            #total3_1_2_player <- table(total1_2_other_2nd_player)
+            
+            #print("跑者上二壘")
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_2_other_3rd = total1_2_other_3rd + 1 
+            total1_2_other_3rd_player <- c(total1_2_other_3rd_player,table_row$base1)
+            #total3_1_3_player <- table(total1_2_other_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_2_other_score = total1_2_other_score + 1 
+            total1_2_other_score_player <- c(total1_2_other_score_player,table_row$base1)
+            #total3_1_4_player <- table(total1_2_other_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_2_other_OA = total1_2_other_OA + 1 
+            total1_2_other_OA_player <- c(total1_2_other_OA_player,table_row$base1)
+            #total3_1_1_player <- table(total1_2_other_OA_player)
+            
+             
+            #print("跑者出局")
+          }
       
     }else if(table_row$out == "二出局" && table_row$direction == "左"){
-      total3_2 = total3_2 + 1
+      total1_2_left = total1_2_left + 1
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total3_2_1 = total3_2_1 + 1 
-        total3_2_1_player <- c(total3_2_1_player,table_row$base1)
-        total3_2_1_players <- table(total3_2_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_2_2 = total3_2_2 + 1
-        total3_2_2_player <- c(total3_2_2_player,table_row$base1)
-        total3_2_2_players <- table(total3_2_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_2_3 = total3_2_3 + 1 
-        total3_2_3_player <- c(total3_2_3_player,table_row$base1)
-        total3_2_3_players <- table(total3_2_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_2_4 = total3_2_4 + 1
-        total3_2_4_player <- c(total3_2_4_player,table_row$base1)
-        total3_2_4_players <- table(total3_2_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_2_left_2nd = total1_2_left_2nd + 1
+            total1_2_left_2nd_player <- c(total1_2_left_2nd_player,table_row$base1)
+            #total3_2_2_player <- table(total1_2_left_2nd_player)
+            
+            #print("跑者上二壘")
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_2_left_3rd = total1_2_left_3rd + 1 
+            total1_2_left_3rd_player <- c(total1_2_left_3rd_player,table_row$base1)
+            #total3_2_3_player <- table(total1_2_left_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_2_left_score = total1_2_left_score + 1
+            total1_2_left_score_player <- c(total1_2_left_score_player,table_row$base1)
+            #total3_2_4_player <- table(total1_2_left_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_2_left_OA = total1_2_left_OA + 1 
+            total1_2_left_OA_player <- c(total1_2_left_OA_player,table_row$base1)
+            #total3_2_1_player <- table(total1_2_left_OA_player)
+            
+            #print("跑者出局")
+          }
       
     }else if(table_row$out == "二出局" && table_row$direction == "中"){
-      total3_3 = total3_3 + 1 
+      total1_2_center = total1_2_center + 1 
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total3_3_1 = total3_3_1 + 1
-        total3_3_1_player <- c(total3_3_1_player,table_row$base1)
-        total3_3_1_players <- table(total3_3_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_3_2 = total3_3_2 + 1 
-        total3_3_2_player <- c(total3_3_2_player,table_row$base1)
-        total3_3_2_players <- table(total3_3_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_3_3 = total3_3_3 + 1
-        total3_3_3_player <- c(total3_3_3_player,table_row$base1)
-        total3_3_3_players <- table(total3_3_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_3_4 = total3_3_4 + 1
-        total3_3_4_player <- c(total3_3_4_player,table_row$base1)
-        total3_3_4_players <- table(total3_3_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_2_center_2nd = total1_2_center_2nd + 1 
+            total1_2_center_2nd_player <- c(total1_2_center_2nd_player,table_row$base1)
+            #total3_3_2_player <- table(total1_2_center_2nd_player)
+            
+            #print("跑者上二壘")
+          }else if(is.na(table_row_1$base3) != TRUE){
+    
+            total1_2_center_3rd = total1_2_center_3rd + 1
+            total1_2_center_3rd_player <- c(total1_2_center_3rd_player,table_row$base1)
+            #total3_3_3_player <- table(total1_2_center_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_2_center_score = total1_2_center_score + 1
+            total1_2_center_score_player <- c(total1_2_center_score_player,table_row$base1)
+            #total3_3_4_player <- table(total1_2_center_score_player)
+            
+            #print("跑者回來得分")
+            
+          }else if(table_row$out != table_row_1$out){
+              
+              total1_2_center_OA = total1_2_center_OA + 1
+              total1_2_center_OA_player <- c(total1_2_center_OA_player,table_row$base1)
+              #total3_3_1_player <- table(total1_2_center_OA_player)
+              
+              #print("跑者出局")
+            }
+      
       
     }else if(table_row$out == "二出局" && table_row$direction == "右"){
-      total3_4 = total3_4 + 1
+      total1_2_right = total1_2_right + 1
       i = i + 1
       table_row_1 <- cpbl_table[i,]
-      if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-         table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-         table_row$out != table_row_1$out){
-        total3_4_1 = total3_4_1 + 1
-        total3_4_1_player <- c(total3_4_1_player,table_row$base1)
-        total3_4_1_players <- table(total3_4_1_player)
-        
-        #print("跑者出局")
-      }else if(is.na(table_row_1$base2) != TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_4_2 = total3_4_2 + 1
-        total3_4_2_player <- c(total3_4_2_player,table_row$base1)
-        total3_4_2players <- table(total3_4_2_player)
-        
-        #print("跑者上二壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) != TRUE && 
-               table_row$away == table_row_1$away || table_row$home == table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_4_3 = total3_4_3 + 1  
-        total3_4_3_player <- c(total3_4_3_player,table_row$base1)
-        total3_4_3_players <- table(total3_4_3_player)
-        
-        #print("跑者上三壘")
-      }else if(is.na(table_row_1$base2) == TRUE && is.na(table_row_1$base3) == TRUE && 
-               table_row$away != table_row_1$away || table_row$home != table_row_1$home && 
-               table_row$out == table_row_1$out){
-        total3_4_4 = total3_4_4 + 1
-        total3_4_4_player <- c(total3_4_4_player,table_row$base1)
-        total3_4_4_players <- table(total3_4_4_player)
-        
-        #print("跑者回來得分")
-      }
+      
+          if(is.na(table_row_1$base2) != TRUE){
+            
+            total1_2_right_2nd = total1_2_right_2nd + 1
+            total1_2_right_2nd_player <- c(total1_2_right_2nd_player,table_row$base1)
+            #total3_4_2player <- table(total1_2_right_2nd_player)
+            
+            #print("跑者上二壘")
+          }else if(is.na(table_row_1$base3) != TRUE){
+            
+            total1_2_right_3rd = total1_2_right_3rd + 1  
+            total1_2_right_3rd_player <- c(total1_2_right_3rd_player,table_row$base1)
+            #total3_4_3_player <- table(total1_2_right_3rd_player)
+            
+            #print("跑者上三壘")
+          }else if(table_row$out == table_row_1$out){
+            
+            total1_2_right_score = total1_2_right_score + 1
+            total1_2_right_score_player <- c(total1_2_right_score_player,table_row$base1)
+            #total3_4_4_player <- table(total1_2_right_score_player)
+            
+            #print("跑者回來得分")
+          }else if(table_row$out != table_row_1$out){
+            
+            total1_2_right_OA = total1_2_right_OA + 1
+            total1_2_right_OA_player <- c(total1_2_right_OA_player,table_row$base1)
+            #total3_4_1_player <- table(total1_2_right_OA_player)
+            
+            #print("跑者出局")
+          }
     }
     
     
@@ -516,83 +514,103 @@ for (i in 1:nrow(cpbl_table)){
 #計算status1(零出局)，跑者到兩壘，到三壘，得分，出局的機率
 
 #安打方向(內安)
-total1_1_1_prob <- total1_1_1/total1_1
-total1_1_2_prob <- total1_1_2/total1_1
-total1_1_3_prob <- total1_1_3/total1_1
-total1_1_4_prob <- total1_1_4/total1_1
+prob0other_OA <- round(total1_0_other_OA/total1_0_other,digits = 3)
+prob0other_2nd <- round(total1_0_other_2nd/total1_0_other,digits = 3)
+prob0other_3rd <- round(total1_0_other_3rd/total1_0_other,digits = 3)
+prob0other_score <- round(total1_0_other_score/total1_0_other,digits = 3)
 
 #安打方向(左安)
-total1_2_1_prob <- total1_2_1/total1_2
-total1_2_2_prob <- total1_2_2/total1_2
-total1_2_3_prob <- total1_2_3/total1_2
-total1_2_4_prob <- total1_2_4/total1_2
+prob0left_OA <- round(total1_0_left_OA/total1_0_left,digits = 3)
+prob0left_2nd <- round(total1_0_left_2nd/total1_0_left,digits = 3)
+prob0left_3rd <- round(total1_0_left_3rd/total1_0_left,digits = 3)
+prob0left_score <- round(total1_0_left_score/total1_0_left,digits = 3)
 
 #安打方向(中安)
-total1_3_1_prob <- total1_3_1/total1_3
-total1_3_2_prob <- total1_3_2/total1_3
-total1_3_3_prob <- total1_3_3/total1_3
-total1_3_4_prob <- total1_3_4/total1_3
+prob0center_OA <- round(total1_0_center_OA/total1_0_center,digits = 3)
+prob0center_2nd <- round(total1_0_center_2nd/total1_0_center,digits = 3)
+prob0center_3rd <- round(total1_0_center_3rd/total1_0_center,digits = 3)
+prob0center_score <- round(total1_0_center_score/total1_0_center,digits = 3)
 
 #安打方向(右安)
-total1_4_1_prob <- total1_4_1/total1_4
-total1_4_2_prob <- total1_4_2/total1_4
-total1_4_3_prob <- total1_4_3/total1_4
-total1_4_4_prob <- total1_4_4/total1_4
+prob0right_OA <- round(total1_0_right_OA/total1_0_right,digits = 3)
+prob0right_2nd <- round(total1_0_right_2nd/total1_0_right,digits = 3)
+prob0right_3rd <- round(total1_0_right_3rd/total1_0_right,digits = 3)
+prob0right_score <- round(total1_0_right_score/total1_0_right,digits = 3)
 
 
 #計算status1(一出局)，跑者到兩壘，到三壘，得分，出局的機率
 
 #安打方向(內安)
-total2_1_1_prob <- total2_1_1/total2_1
-total2_1_2_prob <- total2_1_2/total2_1
-total2_1_3_prob <- total2_1_3/total2_1
-total2_1_4_prob <- total2_1_4/total2_1
+prob1other_OA <- round(total1_1_other_OA/total1_1_other,digits = 3)
+prob1other_2nd <- round(total1_1_other_2nd/total1_1_other,digits = 3)
+prob1other_3rd <- round(total1_1_other_3rd/total1_1_other,digits = 3)
+prob1other_score <- round(total1_1_other_score/total1_1_other,digits = 3)
 
 #安打方向(左安)
-total2_2_1_prob <- total2_2_1/total2_2
-total2_2_2_prob <- total2_2_2/total2_2
-total2_2_3_prob <- total2_2_3/total2_2
-total2_2_4_prob <- total2_2_4/total2_2
+prob1left_OA <- round(total1_1_left_OA/total1_1_left,digits = 3)
+prob1left_2nd <- round(total1_1_left_2nd/total1_1_left,digits = 3)
+prob1left_3rd <- round(total1_1_left_3rd/total1_1_left,digits = 3)
+prob1left_score <- round(total1_1_left_score/total1_1_left,digits = 3)
 
 #安打方向(中安)
-total2_3_1_prob <- total2_3_1/total2_3
-total2_3_2_prob <- total2_3_2/total2_3
-total2_3_3_prob <- total2_3_3/total2_3
-total2_3_4_prob <- total2_3_4/total2_3
+prob1center_OA <- round(total1_1_center_OA/total1_1_center,digits = 3)
+prob1center_2nd <- round(total1_1_center_2nd/total1_1_center,digits = 3)
+prob1center_3rd <- round(total1_1_center_3rd/total1_1_center,digits = 3)
+prob1center_score <- round(total1_1_center_score/total1_1_center,digits = 3)
 
 #安打方向(右安)
-total2_4_1_prob <- total2_4_1/total2_4
-total2_4_2_prob <- total2_4_2/total2_4
-total2_4_3_prob <- total2_4_3/total2_4
-total2_4_4_prob <- total2_4_4/total2_4
+prob1right_OA <- round(total1_1_right_OA/total1_1_right,digits = 3)
+prob1right_2nd <- round(total1_1_right_2nd/total1_1_right,digits = 3)
+prob1right_3rd <- round(total1_1_right_3rd/total1_1_right,digits = 3)
+prob1right_score <- round(total1_1_right_score/total1_1_right,digits = 3)
 
 
 #計算status1(二出局)，跑者到兩壘，到三壘，得分，出局的機率
 
 #安打方向(內安)
-total3_1_1_prob <- total3_1_1/total3_1
-total3_1_2_prob <- total3_1_2/total3_1
-total3_1_3_prob <- total3_1_3/total3_1
-total3_1_4_prob <- total3_1_4/total3_1
+prob2other_OA <- round(total1_2_other_OA/total1_2_other,digits = 3)
+prob2other_2nd <- round(total1_2_other_2nd/total1_2_other,digits = 3)
+prob2other_3rd <- round(total1_2_other_3rd/total1_2_other,digits = 3)
+prob2other_score <- round(total1_2_other_score/total1_2_other,digits = 3)
 
 #安打方向(左安)
-total3_2_1_prob <- total3_2_1/total3_2
-total3_2_2_prob <- total3_2_2/total3_2
-total3_2_3_prob <- total3_2_3/total3_2
-total3_2_4_prob <- total3_2_4/total3_2
+prob2left_OA <- round(total1_2_left_OA/total1_2_left,digits = 3)
+prob2left_2nd <- round(total1_2_left_2nd/total1_2_left,digits = 3)
+prob2left_3rd <- round(total1_2_left_3rd/total1_2_left,digits = 3)
+prob2left_score <- round(total1_2_left_score/total1_2_left,digits = 3)
 
 #安打方向(中安)
-total3_3_1_prob <- total3_3_1/total3_3
-total3_3_2_prob <- total3_3_2/total3_3
-total3_3_3_prob <- total3_3_3/total3_3
-total3_3_4_prob <- total3_3_4/total3_3
+prob2center_OA <- round(total1_2_center_OA/total1_2_center,digits = 3)
+prob2center_2nd <- round(total1_2_center_2nd/total1_2_center,digits = 3)
+prob2center_3rd <- round(total1_2_center_3rd/total1_2_center,digits = 3)
+prob2center_score <- round(total1_2_center_score/total1_2_center,digits = 3)
 
 #安打方向(右安)
-total3_4_1_prob <- total3_4_1/total3_4
-total3_4_2_prob <- total3_4_2/total3_4
-total3_4_3_prob <- total3_4_3/total3_4
-total3_4_4_prob <- total3_4_4/total3_4
+prob2right_OA <- round(total1_2_right_OA/total1_2_right,digits = 3)
+prob2right_2nd <- round(total1_2_right_2nd/total1_2_right,digits = 3)
+prob2right_3rd <- round(total1_2_right_3rd/total1_2_right,digits = 3)
+prob2right_score <- round(total1_2_right_score/total1_2_right,digits = 3)
 
+#輸出表格
+#0出局
+a <- list(Outs_Where ="0-other" ,Opp= total1_0_other, To2nd =prob0other_2nd, To3rd = prob0other_3rd, Score= prob0other_score, OA= prob0other_OA)
+b <- list(Outs_Where ="0-left" ,Opp= total1_0_left, To2nd = prob0left_2nd , To3rd =prob0left_3rd, Score= prob0left_score, OA= prob0left_OA)
+c <- list(Outs_Where ="0-center" ,Opp= total1_0_center,To2nd =prob0center_2nd, To3rd = prob0center_3rd, Score= prob0center_score, OA= prob0center_OA)
+d <- list(Outs_Where ="0-right" ,Opp= total1_0_right,To2nd = prob0right_2nd, To3rd = prob0right_3rd, Score= prob0right_score, OA= prob0right_OA)
 
+#1出局
+e <- list(Outs_Where ="1-other" ,Opp= total1_1_other, To2nd = prob1other_2nd, To3rd =prob1other_3rd, Score= prob1other_score, OA= prob1other_OA)
+f <- list(Outs_Where ="1-left" ,Opp= total1_1_left, To2nd = prob1left_2nd , To3rd =prob1left_3rd, Score= prob1left_score, OA= prob1left_OA)
+g <- list(Outs_Where ="1-center" ,Opp= total1_1_center,To2nd = prob1center_2nd, To3rd =prob1center_3rd, Score= prob1center_score, OA= prob1center_OA)
+h <- list(Outs_Where ="1-right" ,Opp= total1_1_right,To2nd = prob1right_2nd, To3rd = prob1right_3rd, Score= prob1right_score, OA= prob1right_OA)
+
+#2出局
+i <- list(Outs_Where ="2-other" ,Opp= total1_2_other, To2nd = prob2other_2nd, To3rd =prob2other_3rd, Score= prob2other_score, OA= prob2other_OA)
+j <- list(Outs_Where ="2-left" ,Opp= total1_2_left, To2nd = prob2left_2nd , To3rd =prob2left_3rd, Score= prob2left_score, OA= prob2left_OA)
+k <- list(Outs_Where ="2-center" ,Opp= total1_2_center,To2nd = prob2center_2nd, To3rd =prob2center_3rd, Score= prob2center_score, OA= prob2center_OA)
+l <- list(Outs_Where ="2-right" ,Opp= total1_2_right,To2nd = prob2right_2nd, To3rd = prob2right_3rd, Score= prob2right_score, OA= prob2right_OA)
+
+extrabase1_table_test5 = rbind(a,b,c,d,e,f,g,h,i,j,k,l)
+View (extrabase1_table_test5)
 
 
