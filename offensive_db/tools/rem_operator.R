@@ -1,10 +1,11 @@
 library(dplyr)
-off_db_file <- "/Users/shipo/Documents/cpbl_project/temp/output042205_utf8.csv" 
-off_db <- read.csv(off_db_file)
+# off_db_path <- "/Users/shipo/Documents/cpbl_project/temp/output042205_utf8.csv" 
+off_db_path <- "D:/cpbl_project/temp/output042205.csv" 
+off_db <- read.csv(off_db_path, header=TRUE, sep=",")
 
 # 1. 設定
 # 1-1. BASIC: (壘包出局情境為 1~24, 且後續得分為 0~100 的資料列)
-odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100))
+odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !(game.player == ""))
 
 # 1-2. TEAM: (客隊上半局為攻擊、主隊下半局為攻擊)
 # or_away <- odb_rtype %>% filter(grepl(pattern = "統一", x = away, fixed = TRUE), grepl(pattern = "上", x = inning, fixed = TRUE)) 

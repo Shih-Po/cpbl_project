@@ -1,7 +1,7 @@
 library(dplyr)
 
 # 1. 設定篩選條件
-g_type <- "盜"
+g_type <- "雙殺"
 
 select_log_function = function(g_type, num_logfile) {
   # 2. 設定檔案路徑
@@ -21,5 +21,6 @@ print(select_log)
 
 
 # 再次篩選
-g_type2 <- "分佔" 
+#g_type2 <- "三人出局"
+g_type2 <- "兩出局"
 grep(g_type2, select_log, value=TRUE)
