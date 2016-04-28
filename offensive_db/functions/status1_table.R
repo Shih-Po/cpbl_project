@@ -610,7 +610,7 @@ j <- list(Outs_Where ="2-left" ,Opp= total1_2_left, To2nd = prob2left_2nd , To3r
 k <- list(Outs_Where ="2-center" ,Opp= total1_2_center,To2nd = prob2center_2nd, To3rd =prob2center_3rd, Score= prob2center_score, OA= prob2center_OA)
 l <- list(Outs_Where ="2-right" ,Opp= total1_2_right,To2nd = prob2right_2nd, To3rd = prob2right_3rd, Score= prob2right_score, OA= prob2right_OA)
 
-extrabase1_table_test5 = rbind(a,b,c,d,e,f,g,h,i,j,k,l)
-View (extrabase1_table_test5)
+extrabase1_table = rbind(a,b,c,d,e,f,g,h,i,j,k,l)
+View (extrabase1_table)
 
 
