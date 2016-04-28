@@ -13,7 +13,7 @@ odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !
 # odb_rtype <- rbind(or_away, or_home)
 
 # 1-3. PLAYER: (以球員名字為篩選條件)
-# odb_rtype <- odb_rtype %>% filter(Player == "胡金龍")
+odb_rtype <- odb_rtype %>% filter(game.player == "胡金龍")
 
 
 # 2. Output
@@ -21,9 +21,11 @@ odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !
 re_list <- list()
 for (i in 1:24) {
   odb_r <- odb_rtype %>% filter(rem_type == i)
-  r <- sum(odb_r$follow.up) / nrow(odb_r)
+  # r <- sum(odb_r$follow.up) / nrow(odb_r)
+  r <- nrow(odb_r)
   re_list[i] <- r
 }
+
 # 2-2. set the martix
 re_matrix <- matrix(re_list, nrow = 8, byrow=T)
 colnames(re_matrix) <- c("out0", "out1", "out2")
