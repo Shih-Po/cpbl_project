@@ -41,7 +41,7 @@ total2_2_4_OA_player <- total2_2_4_3rd_player <- total2_2_4_score_player <-NULL
 for (i in 1:nrow(cpbl_table)){
   table_row <- cpbl_table[i,]
   # j <- i + 1
-  if (is.na(table_row$base2) !=TRUE && is.na(table_row$base3) == TRUE && 
+  if (is.na(table_row$base1) == TRUE && is.na(table_row$base2) != TRUE && is.na(table_row$base3) == TRUE && 
       table_row$result %in% c("一壘安打", "左外野安打", "中外野安打", "右外野安打", 
                               "穿越安打", "平飛安打", "內野安打", "中間方向安打", "德州安打")){
 

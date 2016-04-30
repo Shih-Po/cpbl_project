@@ -52,7 +52,7 @@ for (i in 1:nrow(cpbl_table)){
   away <- table_row$away
   direction <- table_row$direction
   
-  if (is.na(base1) !=TRUE && is.na(base2) == TRUE &&
+  if (is.na(base1) !=TRUE && is.na(base2) == TRUE && is.na(base3) == TRUE &&
       table_row$result %in% c("二壘安打","深遠安打","上方安打")){
     
     total3 = total3 + 1 
