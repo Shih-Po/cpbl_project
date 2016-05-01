@@ -16,7 +16,7 @@
 # 2 center total3_3 | total3_3_2_prob | total3_3_3_prob | total3_3_4_prob | total3_3_1_prob
 # 2 right  total3_4 | total3_4_2_prob | total3_4_3_prob | total3_4_4_prob | total3_4_1_prob
 library(dplyr)
-##status1 各個opp的EB
+##status1,status2,status3各個opp的EB
 #0 other,0 left,0 center,0 right
 for (i in 1:4) {
   # opp_EB_0_i <- 1*total1_i_2_prob + 2*total1_i_3_prob + 3*total1_i_4_prob - total1_i_1_prob
@@ -96,7 +96,7 @@ for (i in 0:2) {
   for (j in 1:4) {
     get_1base<-c(get_1base,lapply( paste0("total1_",i,"_",j,"_","2nd","_player") , get),
                  lapply( paste0("total2_",i,"_",j,"_","3rd","_player") , get),
-                 lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
+                 #lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
     }
   }
 
@@ -111,7 +111,8 @@ for (i in 0:2) {
   for (j in 1:4) {
     get_2base<-c(get_2base,lapply( paste0("total1_",i,"_",j,"_","3rd","_player") , get),
                  lapply( paste0("total2_",i,"_",j,"_","score","_player") , get),
-                 lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
+                 lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
+                 #lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
   }
 }
 
@@ -124,7 +125,8 @@ get_3base<-NULL
 
 for (i in 0:2) {
   for (j in 1:4) {
-    get_3base<-c(get_3base,lapply( paste0("total1_",i,"_",j,"_","score","_player") , get))
+    get_3base<-c(get_3base,lapply( paste0("total1_",i,"_",j,"_","score","_player") , get),
+                 lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
   }
 }
 
