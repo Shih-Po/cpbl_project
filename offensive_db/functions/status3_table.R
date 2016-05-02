@@ -12,10 +12,10 @@ total3_0_left <- total3_0_left_OA <- total3_0_left_3rd <- total3_0_left_score <-
 total3_0_center <- total3_0_center_OA <- total3_0_center_3rd <- total3_0_center_score <- 
 total3_0_right <- total3_0_right_OA <- total3_0_right_3rd <- total3_0_right_score <- 0
 
-total3_0_1_OA_players <- total3_0_1_3rd_player <- total3_0_1_score_player <- 
-total3_0_2_OA_players <- total3_0_2_3rd_player <- total3_0_2_score_player <- 
-total3_0_3_OA_players <- total3_0_3_3rd_player <- total3_0_3_score_player <- 
-total3_0_4_OA_players <- total3_0_4_3rd_player <- total3_0_4_score_player <- NULL
+total3_0_1_OA_player <- total3_0_1_3rd_player <- total3_0_1_score_player <- 
+total3_0_2_OA_player <- total3_0_2_3rd_player <- total3_0_2_score_player <- 
+total3_0_3_OA_player <- total3_0_3_3rd_player <- total3_0_3_score_player <- 
+total3_0_4_OA_player <- total3_0_4_3rd_player <- total3_0_4_score_player <- NULL
 
 #一出局
 total3_1_other <- total3_1_other_OA <- total3_1_other_3rd <- total3_1_other_score <- 
@@ -23,10 +23,10 @@ total3_1_left <- total3_1_left_OA <- total3_1_left_3rd <- total3_1_left_score <-
 total3_1_center <- total3_1_center_OA <- total3_1_center_3rd <- total3_1_center_score <- 
 total3_1_right <- total3_1_right_OA <- total3_1_right_3rd <- total3_1_right_score <- 0
 
-total3_1_1_OA_players <- total3_1_1_3rd_player <- total3_1_1_score_player <- 
-total3_1_2_OA_players <- total3_1_2_3rd_player <- total3_1_2_score_player <- 
-total3_1_3_OA_players <- total3_1_3_3rd_player <- total3_1_3_score_player <- 
-total3_1_4_OA_players <- total3_1_4_3rd_player <- total3_1_4_score_player <-NULL
+total3_1_1_OA_player <- total3_1_1_3rd_player <- total3_1_1_score_player <- 
+total3_1_2_OA_player <- total3_1_2_3rd_player <- total3_1_2_score_player <- 
+total3_1_3_OA_player <- total3_1_3_3rd_player <- total3_1_3_score_player <- 
+total3_1_4_OA_player <- total3_1_4_3rd_player <- total3_1_4_score_player <-NULL
 
 #三出局
 total3_2_other <- total3_2_other_OA <- total3_2_other_3rd <- total3_2_other_score <- 
@@ -34,10 +34,10 @@ total3_2_left <- total3_2_left_OA <- total3_2_left_3rd <- total3_2_left_score <-
 total3_2_center <- total3_2_center_OA <- total3_2_center_3rd <- total3_2_center_score <- 
 total3_2_right <- total3_2_right_OA <- total3_2_right_3rd <- total3_2_right_score <- 0
 
-total3_2_1_OA_players <- total3_2_1_3rd_player <- total3_2_1_score_player <- 
-total3_2_2_OA_players <- total3_2_2_3rd_player <- total3_2_2_score_player <- 
-total3_2_3_OA_players <- total3_2_3_3rd_player <- total3_2_3_score_player <- 
-total3_2_4_OA_players <- total3_2_4_3rd_player <- total3_2_4_score_player <-NULL
+total3_2_1_OA_player <- total3_2_1_3rd_player <- total3_2_1_score_player <- 
+total3_2_2_OA_player <- total3_2_2_3rd_player <- total3_2_2_score_player <- 
+total3_2_3_OA_player <- total3_2_3_3rd_player <- total3_2_3_score_player <- 
+total3_2_4_OA_player <- total3_2_4_3rd_player <- total3_2_4_score_player <-NULL
 
 
 for (i in 1:nrow(cpbl_table)){
@@ -69,8 +69,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_0_other_OA <- total3_0_other_OA + 1 
-            total3_0_1_OA_player <- c(total3_0_1_OA_players,base1)
-            #total3_0_1_OA_players <- table(total3_0_1_OA_players)
+            total3_0_1_OA_player <- c(total3_0_1_OA_player,base1)
+            #total3_0_1_OA_player <- table(total3_0_1_OA_player)
             
             
             #跑者上三壘
@@ -103,8 +103,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_0_left_OA <- total3_0_left_OA + 1 
-            total3_0_2_OA_player <- c(total3_0_2_OA_players,base1)
-            #total3_0_2_OA_players <- table(total3_0_2_OA_players)
+            total3_0_2_OA_player <- c(total3_0_2_OA_player,base1)
+            #total3_0_2_OA_player <- table(total3_0_2_OA_player)
             
             
             #跑者上三壘
@@ -136,8 +136,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_0_center_OA <- total3_0_center_OA + 1 
-            total3_0_3_OA_player <- c(total3_0_3_OA_players,base1)
-            #total3_0_3_OA_players <- table(total3_0_3_OA_players)
+            total3_0_3_OA_player <- c(total3_0_3_OA_player,base1)
+            #total3_0_3_OA_player <- table(total3_0_3_OA_player)
             
             
             #跑者上三壘
@@ -169,8 +169,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_0_right_OA <- total3_0_right_OA + 1 
-            total3_0_4_OA_player <- c(total3_0_4_OA_players,base1)
-            #total3_0_4_OA_players <- table(total3_0_4_OA_players)
+            total3_0_4_OA_player <- c(total3_0_4_OA_player,base1)
+            #total3_0_4_OA_player <- table(total3_0_4_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -201,8 +201,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_1_other_OA <- total3_1_other_OA + 1 
-            total3_1_1_OA_player <- c(total3_1_1_OA_players,base1)
-            #total3_1_1_OA_players <- table(total3_1_1_OA_players)
+            total3_1_1_OA_player <- c(total3_1_1_OA_player,base1)
+            #total3_1_1_OA_player <- table(total3_1_1_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -233,8 +233,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_1_left_OA <- total3_1_left_OA + 1 
-            total3_1_2_OA_player <- c(total3_1_2_OA_players,base1)
-            #total3_1_2_OA_players <- table(total3_1_2_OA_players)
+            total3_1_2_OA_player <- c(total3_1_2_OA_player,base1)
+            #total3_1_2_OA_player <- table(total3_1_2_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -265,8 +265,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_1_center_OA <- total3_1_center_OA + 1 
-            total3_1_3_OA_player <- c(total3_1_3_OA_players,base1)
-            #total3_1_3_OA_players <- table(total3_1_3_OA_players)
+            total3_1_3_OA_player <- c(total3_1_3_OA_player,base1)
+            #total3_1_3_OA_player <- table(total3_1_3_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -297,8 +297,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_1_right_OA <- total3_1_right_OA + 1 
-            total3_1_4_OA_player <- c(total3_1_4_OA_players,base1)
-            #total3_1_4_OA_players <- table(total3_1_4_OA_players)
+            total3_1_4_OA_player <- c(total3_1_4_OA_player,base1)
+            #total3_1_4_OA_player <- table(total3_1_4_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -329,8 +329,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_2_other_OA <- total3_2_other_OA + 1 
-            total3_2_1_OA_player <- c(total3_2_1_OA_players,base1)
-            #total3_2_1_OA_players <- table(total3_2_1_OA_players)
+            total3_2_1_OA_player <- c(total3_2_1_OA_player,base1)
+            #total3_2_1_OA_player <- table(total3_2_1_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_2$base3) != TRUE){
@@ -361,8 +361,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_2_left_OA <- total3_2_left_OA + 1 
-            total3_2_2_OA_player <- c(total3_2_2_OA_players,base1)
-            #total3_2_2_OA_players <- table(total3_2_2_OA_players)
+            total3_2_2_OA_player <- c(total3_2_2_OA_player,base1)
+            #total3_2_2_OA_player <- table(total3_2_2_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -393,8 +393,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_2_center_OA <- total3_2_center_OA + 1 
-            total3_2_3_OA_player <- c(total3_2_3_OA_players,base1)
-            #total3_2_3_OA_players <- table(total3_2_3_OA_players)
+            total3_2_3_OA_player <- c(total3_2_3_OA_player,base1)
+            #total3_2_3_OA_player <- table(total3_2_3_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -425,8 +425,8 @@ for (i in 1:nrow(cpbl_table)){
              out != table_row_1$out){
             
             total3_2_right_OA <- total3_2_right_OA + 1 
-            total3_2_4_OA_player <- c(total3_2_4_OA_players,base1)
-            #total3_2_4_OA_players <- table(total3_2_4_OA_players)
+            total3_2_4_OA_player <- c(total3_2_4_OA_player,base1)
+            #total3_2_4_OA_player <- table(total3_2_4_OA_player)
             
             #跑者上三壘
           }else if(is.na(table_row_1$base3) != TRUE){
@@ -497,7 +497,7 @@ prob3_2_1_score <- round(total3_2_other_score/ total3_2_other, digits = 3)
 prob3_2_1_OA <- total3_2_other_OA / total3_2_other
 
 #左
-prob3_2_2_3rd <- total3_2_left_3rd / total3_2_left
+prob3_2_2_3rd <- round(total3_2_left_3rd / total3_2_left, digits = 3)
 prob3_2_2_score <- round(total3_2_left_score/ total3_2_left, digits = 3)
 prob3_2_2_OA <- total3_2_left_OA / total3_2_left
 
@@ -516,17 +516,17 @@ extrabase3_table = rbind(
 list(Outs_Where = "0-other", Opp=total3_0_other, To3rd=prob3_0_1_3rd, Score=prob3_0_1_score, OA=prob3_0_1_OA),
 list(Outs_Where = "0-left", Opp=total3_0_left, To3rd=prob3_0_2_3rd, Score=prob3_0_2_score, OA=prob3_0_2_OA),
 list(Outs_Where = "0-center", Opp=total3_0_center, To3rd=prob3_0_3_3rd, Score=prob3_0_3_score, OA=prob3_0_3_OA),
-list(Outs_Where = "0-other", Opp=total3_0_right, To3rd=prob3_0_4_3rd, Score=prob3_0_4_score, OA=prob3_0_4_OA),
+list(Outs_Where = "0-right", Opp=total3_0_right, To3rd=prob3_0_4_3rd, Score=prob3_0_4_score, OA=prob3_0_4_OA),
 
 list(Outs_Where = "1-other", Opp=total3_1_other, To3rd=prob3_1_1_3rd, Score=prob3_1_1_score, OA=prob3_1_1_OA),
 list(Outs_Where = "1-left", Opp=total3_1_left, To3rd=prob3_1_2_3rd, Score=prob3_1_2_score, OA=prob3_1_2_OA),
 list(Outs_Where = "1-center", Opp=total3_1_center, To3rd=prob3_1_3_3rd, Score=prob3_1_3_score, OA=prob3_1_3_OA),
-list(Outs_Where = "1-other", Opp=total3_1_right, To3rd=prob3_1_4_3rd, Score=prob3_1_4_score, OA=prob3_1_4_OA),
+list(Outs_Where = "1-right", Opp=total3_1_right, To3rd=prob3_1_4_3rd, Score=prob3_1_4_score, OA=prob3_1_4_OA),
 
 list(Outs_Where = "2-other", Opp=total3_2_other, To3rd=prob3_2_1_3rd, Score=prob3_2_1_score, OA=prob3_2_1_OA),
 list(Outs_Where = "2-left", Opp=total3_2_left, To3rd=prob3_2_2_3rd, Score=prob3_2_2_score, OA=prob3_2_2_OA),
 list(Outs_Where = "2-center", Opp=total3_2_center, To3rd=prob3_2_3_3rd, Score=prob3_2_3_score, OA=prob3_2_3_OA),
-list(Outs_Where = "2-other", Opp=total3_2_right, To3rd=prob3_2_4_3rd, Score=prob3_2_4_score, OA=prob3_2_4_OA)
+list(Outs_Where = "2-right", Opp=total3_2_right, To3rd=prob3_2_4_3rd, Score=prob3_2_4_score, OA=prob3_2_4_OA)
 )
 
 View(extrabase3_table)
