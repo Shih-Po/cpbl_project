@@ -21,22 +21,22 @@
 
 #------------------------------------------------------------------------------------------
 
-
 library(dplyr)
-off_db_file <- "C:/Users/yuan/Desktop/output042303.csv" 
-off_db <- read.csv(off_db_file)
+off_db <- read.csv(file("/Users/farmereric/Documents/Others/output042303.csv", encoding="big5"), 
+                   header = TRUE, sep = "," ,stringsAsFactors = FALSE)
 
 # 1. 設定
-# 1-1. BASIC: (壘包出局情境為 1~24, 且後續得分為 0~100 的資料列)
-odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100))
+# 1-1. BASIC(全聯盟):  (壘包出局情境為 1~24, 且後續得分為 0~100 的資料列)
+odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !(Player == ""))
 
 # 1-2. TEAM: (客隊上半局為攻擊、主隊下半局為攻擊)
-# or_away <- odb_rtype %>% filter(grepl(pattern = "統一", x = away, fixed = TRUE), grepl(pattern = "上", x = inning, fixed = TRUE)) 
-# or_home <- odb_rtype %>% filter(grepl(pattern = "統一", x = home, fixed = TRUE), grepl(pattern = "下", x = inning, fixed = TRUE)) 
+# team <- "統一"
+# or_away <- odb_rtype %>% filter(grepl(pattern = team, x = away, fixed = TRUE), grepl(pattern = "上", x = inning, fixed = TRUE)) 
+# or_home <- odb_rtype %>% filter(grepl(pattern = team, x = home, fixed = TRUE), grepl(pattern = "下", x = inning, fixed = TRUE)) 
 # odb_rtype <- rbind(or_away, or_home)
 
 # 1-3. PLAYER: (以球員名字為篩選條件)
-# odb_rtype <- odb_rtype %>% filter(Player == "胡金龍")
+#odb_rtype <- odb_rtype %>% filter(game.player == "胡金龍")
 
 
 # 2. Output
@@ -44,17 +44,15 @@ odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100))
 re_list <- list()
 for (i in 1:24) {
   odb_r <- odb_rtype %>% filter(rem_type == i)
-  r <- sum(odb_r$follow.up) / nrow(odb_r)
+  r <- round(sum(odb_r$follow.up) / nrow(odb_r), digits = 3) #得分期望值
+  #r <- nrow(odb_r) #次數
   re_list[i] <- r
 }
+
 # 2-2. set the martix
 re_matrix <- matrix(re_list, nrow = 8, byrow=T)
 colnames(re_matrix) <- c("out0", "out1", "out2")
 rownames(re_matrix) <- c("empty", "1B", "2B", "3B", "1B_2B", "1B_3B", "2B_3B", "1B_2B_3B")
-
-# 2-3. output REM and Warning amount
-re_matrix
-summary(odb_rtype$special)
 
 
 #------------------------------------------------------------------------------------------
@@ -324,25 +322,33 @@ runner_Run_Expectancy[is.na(runner_Run_Expectancy)] <- 0
 BRR = (re_matrix[[5,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to1_2base_0_players + 
       (re_matrix[[5,2]]-re_matrix[[2,2]])*runner_Run_Expectancy$to1_2base_1_players +
       (re_matrix[[5,3]]-re_matrix[[2,3]])*runner_Run_Expectancy$to1_2base_2_players +
+  
       (re_matrix[[6,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to1_3base_0_players +
       (re_matrix[[6,2]]-re_matrix[[2,2]])*runner_Run_Expectancy$to1_3base_1_players +
       (re_matrix[[6,3]]-re_matrix[[2,3]])*runner_Run_Expectancy$to1_3base_2_players +
-      (1+re_matrix[[2,1]])*runner_Run_Expectancy$to1_homebase_0_players +
-      (1+re_matrix[[2,2]])*runner_Run_Expectancy$to1_homebase_1_players +
-      (1+re_matrix[[2,3]])*runner_Run_Expectancy$to1_homebase_2_players +
+  
+      1*runner_Run_Expectancy$to1_homebase_0_players +
+      1*runner_Run_Expectancy$to1_homebase_1_players +
+      1*runner_Run_Expectancy$to1_homebase_2_players +
+  
       (re_matrix[[2,3]]-re_matrix[[2,2]])*runner_Run_Expectancy$get1_out_1_players +
+  
       (re_matrix[[6,1]]-re_matrix[[3,1]])*runner_Run_Expectancy$to2_3base_0_players +
       (re_matrix[[6,2]]-re_matrix[[3,2]])*runner_Run_Expectancy$to2_3base_1_players +
       (re_matrix[[6,3]]-re_matrix[[3,3]])*runner_Run_Expectancy$to2_3base_2_players +
-      (1+re_matrix[[3,1]])*runner_Run_Expectancy$to2_homebase_0_players +
-      (1+re_matrix[[3,2]])*runner_Run_Expectancy$to2_homebase_1_players +
-      (1+re_matrix[[3,3]])*runner_Run_Expectancy$to2_homebase_2_players +
+  
+      (1+re_matrix[[2,1]] - re_matrix[[3,1]])*runner_Run_Expectancy$to2_homebase_0_players +
+      (1+re_matrix[[2,2]] - re_matrix[[3,2]])*runner_Run_Expectancy$to2_homebase_1_players +
+      (1+re_matrix[[2,3]] - re_matrix[[3,3]])*runner_Run_Expectancy$to2_homebase_2_players +
+  
       #(re_matrix[[2,2]]-re_matrix[[3,1]])*runner_Run_Expectancy$get2_out_0_players +
       (re_matrix[[2,3]]-re_matrix[[3,2]])*runner_Run_Expectancy$get2_out_1_players +
       #(0-re_matrix[[3,3]])*runner_Run_Expectancy$get2_out_2_players +
+  
       (re_matrix[[7,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to3_3base_0_players +
       (re_matrix[[7,2]]-re_matrix[[2,2]])*runner_Run_Expectancy$to3_3base_1_players +
       (re_matrix[[7,3]]-re_matrix[[2,3]])*runner_Run_Expectancy$to3_3base_2_players +
+  
       ((1+re_matrix[[3,1]])-re_matrix[[2,1]])*runner_Run_Expectancy$to3_homebase_0_players +
       ((1+re_matrix[[3,2]])-re_matrix[[2,2]])*runner_Run_Expectancy$to3_homebase_1_players +
       ((1+re_matrix[[3,3]])-re_matrix[[2,3]])*runner_Run_Expectancy$to3_homebase_2_players
@@ -364,7 +370,7 @@ ExR = (re_matrix[[5,1]]-re_matrix[[2,1]])*(runner_Run_Expectancy$to1_2base_0_pla
 
 IR = BRR - ExR
 
-IRP = BRR/ExR
+IRP = round(BRR/ExR, digits = 3)
 
 Opp = runner_Run_Expectancy$players_opp
 
