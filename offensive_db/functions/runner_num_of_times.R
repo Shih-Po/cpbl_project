@@ -29,9 +29,9 @@ for (i in 1:4) {
            2*get(paste0("prob2_","0_",i,"_score")) -
            1*get(paste0("prob2_","0_",i,"_OA")) )
   
-  assign(paste0("opp3_EB_0_",i), 1*get(paste0("prob3_","0_",i,"_3rd")) + 
-           2*get(paste0("prob3_","0_",i,"_score")) -
-           1*get(paste0("prob3_","0_",i,"_OA")) )
+  assign(paste0("opp3_EB_0_",i), 2*get(paste0("prob3_","0_",i,"_3rd")) + 
+           3*get(paste0("prob3_","0_",i,"_score")) -
+           2*get(paste0("prob3_","0_",i,"_OA")) )
   
 }
 #1 other,1 left,1 center,1 right
@@ -45,9 +45,9 @@ for (i in 1:4) {
            2*get(paste0("prob2_","1_",i,"_score")) -
            1*get(paste0("prob2_","1_",i,"_OA")) )
   
-  assign(paste0("opp3_EB_1_",i), 1*get(paste0("prob3_","1_",i,"_3rd")) + 
-           2*get(paste0("prob3_","1_",i,"_score")) -
-           1*get(paste0("prob3_","1_",i,"_OA")) )
+  assign(paste0("opp3_EB_1_",i), 2*get(paste0("prob3_","1_",i,"_3rd")) + 
+           3*get(paste0("prob3_","1_",i,"_score")) -
+           2*get(paste0("prob3_","1_",i,"_OA")) )
 }
 #2 other,2 left,2 center,2 right
 for (i in 1:4) {
@@ -60,9 +60,9 @@ for (i in 1:4) {
            2*get(paste0("prob2_","2_",i,"_score")) -
            1*get(paste0("prob2_","2_",i,"_OA")) )
   
-  assign(paste0("opp3_EB_2_",i), 1*get(paste0("prob3_","2_",i,"_3rd")) + 
-           2*get(paste0("prob3_","2_",i,"_score")) -
-           1*get(paste0("prob3_","2_",i,"_OA")) )
+  assign(paste0("opp3_EB_2_",i), 2*get(paste0("prob3_","2_",i,"_3rd")) + 
+           3*get(paste0("prob3_","2_",i,"_score")) -
+           2*get(paste0("prob3_","2_",i,"_OA")) )
 }
 #------------------------------------------------------------------------------------------
 ## 個人的opp次數
@@ -89,22 +89,22 @@ colnames(players_opp) <- c("name","opp_total")
 
 #------------------------------------------------------------------------------------------
 ## 個人實際跑了多少壘包
-#跑者跑到二壘情況(得一壘包)
+#跑者得一個壘包
 get_1base<-NULL
 
 for (i in 0:2) {
   for (j in 1:4) {
     get_1base<-c(get_1base,lapply( paste0("total1_",i,"_",j,"_","2nd","_player") , get),
-                 lapply( paste0("total2_",i,"_",j,"_","3rd","_player") , get),
+                 lapply( paste0("total2_",i,"_",j,"_","3rd","_player") , get))
                  #lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
-    }
+  }
   }
 
 get_1base_players <- as.data.frame(unlist(get_1base)%>%table())
 colnames(get_1base_players) <- c("name","opp_total")
 
 #------------------------------------------------------------------------------------------
-#跑者跑到三壘情況(得兩壘包)
+#跑者得兩個壘包
 get_2base<-NULL
 
 for (i in 0:2) {
@@ -120,7 +120,7 @@ get_2bases_players <- as.data.frame(unlist(get_2base)%>%table())
 colnames(get_2bases_players) <- c("name","opp_total")
 
 #------------------------------------------------------------------------------------------
-#跑者跑回本壘情況(得三壘包)
+#跑者得三個壘包
 get_3base<-NULL
 
 for (i in 0:2) {
