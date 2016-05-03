@@ -22,9 +22,9 @@
 #------------------------------------------------------------------------------------------
 
 library(dplyr)
-off_db <- read.csv(file("/Users/farmereric/Documents/Others/output042303.csv", encoding="big5"), 
-                   header = TRUE, sep = "," ,stringsAsFactors = FALSE)
-
+# off_db <- read.csv(file("C:/Users/Student/Desktop/output_1050503.csv", encoding="big5"), 
+#                    header = TRUE, sep = "," ,stringsAsFactors = FALSE)
+off_db <- readRDS("C:/Users/Student/Desktop/off_db.RDS")
 # 1. 設定
 # 1-1. BASIC(全聯盟):  (壘包出局情境為 1~24, 且後續得分為 0~100 的資料列)
 odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !(Player == ""))
@@ -222,40 +222,40 @@ colnames(to3_homebase_2_players) <- c("name","opp_total")
 #------------------------------------------------------------------------------------------
 #跑者在跑壘時出局的情況(0出局)
 ## get2_out_0<-c(get2_out_0,lapply( paste0("total2_","0","_",j,"_","OA","_player") , get))
-# get1_out_0<-NULL
+get1_out_0<-NULL
 # get2_out_0<-NULL
 # get3_out_0<-NULL
 # 
-# for (j in 1:4) {
-#   get1_out_0<-c(get1_out_0,lapply( paste0("total1_","0","_",j,"_","OA","_player") , get))
-#   
+for (j in 1:4) {
+  get1_out_0<-c(get1_out_0,lapply( paste0("total1_","0","_",j,"_","OA","_player") , get))
+
 #   get3_out_0<-c(get3_out_0,lapply( paste0("total3_","0","_",j,"_","OA","_player") , get))
-#   }
+  }
 # 
-# get1_out_0_players <- as.data.frame(unlist(get1_out_0)%>%table())
+get1_out_0_players <- as.data.frame(unlist(get1_out_0)%>%table())
 # get2_out_0_players <- as.data.frame(unlist(get2_out_0)%>%table())
 # get3_out_0_players <- as.data.frame(unlist(get3_out_0)%>%table())
-# colnames(get1_out_0_players) <- c("name","opp_total")
+colnames(get1_out_0_players) <- c("name","opp_total")
 # colnames(get2_out_0_players) <- c("name","opp_total")
 # colnames(get3_out_0_players) <- c("name","opp_total")
 
 #跑者在跑壘時出局的情況(1出局)
 #get3_out_1<-c(get3_out_1,lapply( paste0("total3_","1","_",j,"_","OA","_player") , get))
 get1_out_1<-NULL
-get2_out_1<-NULL
+#get2_out_1<-NULL
 #get3_out_1<-NULL
 
 for (j in 1:4) {
   get1_out_1<-c(get1_out_1,lapply( paste0("total1_","1","_",j,"_","OA","_player") , get))
-  get2_out_1<-c(get2_out_1,lapply( paste0("total2_","1","_",j,"_","OA","_player") , get))
+  # get2_out_1<-c(get2_out_1,lapply( paste0("total2_","1","_",j,"_","OA","_player") , get))
 
   }
 
 get1_out_1_players <- as.data.frame(unlist(get1_out_1)%>%table())
-get2_out_1_players <- as.data.frame(unlist(get2_out_1)%>%table())
+# get2_out_1_players <- as.data.frame(unlist(get2_out_1)%>%table())
 #get3_out_1_players <- as.data.frame(unlist(get3_out_1)%>%table())
 colnames(get1_out_1_players) <- c("name","opp_total")
-colnames(get2_out_1_players) <- c("name","opp_total")
+# colnames(get2_out_1_players) <- c("name","opp_total")
 #colnames(get3_out_1_players) <- c("name","opp_total")
 
 #跑者在跑壘時出局的情況(2出局)
@@ -280,28 +280,28 @@ colnames(get2_out_1_players) <- c("name","opp_total")
 
 #------------------------------------------------------------------------------------------
 ##合併所有計算所需表格
-#,get1_out_2_players, get1_out_0_players, get3_out_0_players, get3_out_1_players, get3_out_2_players 
-#,get2_out_0_players, get2_out_2_players,
+#,get1_out_2_players,  get3_out_0_players, get3_out_1_players, get3_out_2_players 
+#,get2_out_0_players, get2_out_2_players,  get2_out_1_players,
 #因為沒有人出現，所以還無法放入我的表格內
 
 runner_Run_Expectancy <- Reduce(function(x, y) merge(x, y , by="name" , all = T ), 
                                  list(players_opp, to1_2base_0_players, to1_2base_1_players, 
                                       to1_2base_2_players, to1_3base_0_players, to1_3base_1_players,
                                       to1_3base_2_players, to1_homebase_0_players, to1_homebase_1_players,
-                                      to1_homebase_2_players, get1_out_1_players, to2_3base_0_players, 
-                                      to2_3base_1_players, to2_3base_2_players, to2_homebase_0_players, 
-                                      to2_homebase_1_players, to2_homebase_2_players, 
-                                      get2_out_1_players,                       to3_3base_0_players, 
+                                      to1_homebase_2_players, get1_out_0_players, get1_out_1_players, 
+                                      to2_3base_0_players, to2_3base_1_players, to2_3base_2_players, 
+                                      to2_homebase_0_players, to2_homebase_1_players, to2_homebase_2_players, 
+                                                                                      to3_3base_0_players, 
                                       to3_3base_1_players, to3_3base_2_players, to3_homebase_0_players, 
                                       to3_homebase_1_players, to3_homebase_2_players))
 
 colnames(runner_Run_Expectancy) <- c("name","players_opp", "to1_2base_0_players", "to1_2base_1_players", 
                                       "to1_2base_2_players", "to1_3base_0_players", "to1_3base_1_players",
                                       "to1_3base_2_players", "to1_homebase_0_players" , "to1_homebase_1_players",
-                                      "to1_homebase_2_players" , "get1_out_1_players" , "to2_3base_0_players", 
-                                      "to2_3base_1_players", "to2_3base_2_players", "to2_homebase_0_players", 
-                                      "to2_homebase_1_players", "to2_homebase_2_players", 
-                                      "get2_out_1_players",                         "to3_3base_0_players", 
+                                      "to1_homebase_2_players", "get1_out_0_players" , "get1_out_1_players" , 
+                                      "to2_3base_0_players", "to2_3base_1_players", "to2_3base_2_players", 
+                                      "to2_homebase_0_players", "to2_homebase_1_players", "to2_homebase_2_players", 
+                                                                                          "to3_3base_0_players", 
                                       "to3_3base_1_players", "to3_3base_2_players", "to3_homebase_0_players", 
                                       "to3_homebase_1_players", "to3_homebase_2_players")
 ##----------------------------------------------------------------------------------------
@@ -331,6 +331,7 @@ BRR = (re_matrix[[5,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to1_2base_0_play
       1*runner_Run_Expectancy$to1_homebase_1_players +
       1*runner_Run_Expectancy$to1_homebase_2_players +
   
+      (re_matrix[[2,2]]-re_matrix[[2,1]])*runner_Run_Expectancy$get1_out_0_players +
       (re_matrix[[2,3]]-re_matrix[[2,2]])*runner_Run_Expectancy$get1_out_1_players +
   
       (re_matrix[[6,1]]-re_matrix[[3,1]])*runner_Run_Expectancy$to2_3base_0_players +
@@ -342,7 +343,7 @@ BRR = (re_matrix[[5,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to1_2base_0_play
       (1+re_matrix[[2,3]] - re_matrix[[3,3]])*runner_Run_Expectancy$to2_homebase_2_players +
   
       #(re_matrix[[2,2]]-re_matrix[[3,1]])*runner_Run_Expectancy$get2_out_0_players +
-      (re_matrix[[2,3]]-re_matrix[[3,2]])*runner_Run_Expectancy$get2_out_1_players +
+      # (re_matrix[[2,3]]-re_matrix[[3,2]])*runner_Run_Expectancy$get2_out_1_players +
       #(0-re_matrix[[3,3]])*runner_Run_Expectancy$get2_out_2_players +
   
       (re_matrix[[7,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to3_3base_0_players +
@@ -355,15 +356,16 @@ BRR = (re_matrix[[5,1]]-re_matrix[[2,1]])*runner_Run_Expectancy$to1_2base_0_play
 
 
 ExR = (re_matrix[[5,1]]-re_matrix[[2,1]])*(runner_Run_Expectancy$to1_2base_0_players + runner_Run_Expectancy$to1_3base_0_players + 
-                                           runner_Run_Expectancy$to1_homebase_0_players) +
+                                           runner_Run_Expectancy$to1_homebase_0_players + runner_Run_Expectancy$get1_out_0_players) +
       (re_matrix[[5,2]]-re_matrix[[2,2]])*(runner_Run_Expectancy$to1_2base_1_players + runner_Run_Expectancy$to1_3base_1_players +
                                            runner_Run_Expectancy$to1_homebase_1_players + runner_Run_Expectancy$get1_out_1_players) +
       (re_matrix[[5,3]]-re_matrix[[2,3]])*(runner_Run_Expectancy$to1_2base_2_players + runner_Run_Expectancy$to1_3base_2_players +
                                            runner_Run_Expectancy$to1_homebase_2_players) +
+      
       (re_matrix[[6,1]]-re_matrix[[3,1]])*(runner_Run_Expectancy$to2_3base_0_players + runner_Run_Expectancy$to2_homebase_0_players) +
-      (re_matrix[[6,2]]-re_matrix[[3,2]])*(runner_Run_Expectancy$to2_3base_1_players + runner_Run_Expectancy$to2_homebase_1_players + 
-                                           runner_Run_Expectancy$get2_out_1_players) +
+      (re_matrix[[6,2]]-re_matrix[[3,2]])*(runner_Run_Expectancy$to2_3base_1_players + runner_Run_Expectancy$to2_homebase_1_players) +
       (re_matrix[[6,3]]-re_matrix[[3,3]])*(runner_Run_Expectancy$to2_3base_2_players + runner_Run_Expectancy$to2_homebase_2_players) +
+  
       (re_matrix[[7,1]]-re_matrix[[2,1]])*(runner_Run_Expectancy$to3_3base_0_players + runner_Run_Expectancy$to3_homebase_0_players) +
       (re_matrix[[7,2]]-re_matrix[[2,2]])*(runner_Run_Expectancy$to3_3base_1_players + runner_Run_Expectancy$to3_homebase_1_players) +
       (re_matrix[[7,3]]-re_matrix[[2,3]])*(runner_Run_Expectancy$to3_3base_2_players + runner_Run_Expectancy$to3_homebase_2_players) 
@@ -375,3 +377,4 @@ IRP = round(BRR/ExR, digits = 3)
 Opp = runner_Run_Expectancy$players_opp
 
 player_Run_Expectancy <- data.frame(runner_Run_Expectancy$name,Opp,BRR,ExR,IR,IRP)
+View(player_Run_Expectancy)

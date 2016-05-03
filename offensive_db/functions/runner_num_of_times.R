@@ -136,7 +136,7 @@ colnames(get_3bases_players) <- c("name","opp_total")
 #------------------------------------------------------------------------------------------
 ## 個人預期跑多少壘包
 # 0  Other,在這種情況下，每個opp所獲得EB(opp_EB_0_1)
-#,lapply( paste0("total3_","0","_","1","_","OA","_player") , get)
+#,lapply( paste0("total3_","0","_","1","_","OA","_player") , get) , get3_0_other = NULL
 get1_0_other<-NULL
 get2_0_other<-NULL
 get3_0_other<-NULL
@@ -240,7 +240,7 @@ colnames(get3_0_right_EB) <- c("name","opp_total")
 
 #------------------------------------------------------------------------------------------
 # 1  Other,在這種情況下，每個opp所獲得EB(opp_EB_1_1)
-#,lapply( paste0("total3_","1","_","1","_","OA","_player") , get)
+#,lapply( paste0("total3_","1","_","1","_","OA","_player") , get) , get3_1_other = NULL
 get1_1_other<-NULL
 get2_1_other<-NULL
 get3_1_other<-NULL
@@ -340,7 +340,7 @@ colnames(get3_1_right_EB) <- c("name","opp_total")
 
 #------------------------------------------------------------------------------------------
 # 2  Other,在這種情況下，每個opp所獲得EB(opp_EB_2_1)
-#,lapply( paste0("total3_","2","_","1","_","OA","_player") , get)
+#,lapply( paste0("total3_","2","_","1","_","OA","_player") , get) , get3_2_other = NULL
 get1_2_other<-NULL
 get2_2_other<-NULL
 get3_2_other<-NULL
@@ -540,3 +540,4 @@ IBP = round(Bases/EB,digits=3)
 player_number_of_times <- data.frame(Name,Opp,Bases,EB,IB,OA,IBP)
 
 View(player_number_of_times)
+
