@@ -260,4 +260,24 @@ for(i in 1: nrow(off_db)){
   }
 }
 
+# clean player
+off_db$Player <- sub("為",replacement="", off_db$Player)
+off_db$Player <- gsub("啟用",replacement="", off_db$Player)
+off_db$Player <- gsub("代打",replacement="", off_db$Player)
+off_db$Player <- gsub("更動",replacement="", off_db$Player)
+off_db$Player <- gsub("更換",replacement="", off_db$Player)
+off_db$Player <- gsub("守備",replacement="", off_db$Player)
+off_db$Player <- gsub("\\(",replacement="", off_db$Player)
+off_db$Player <- gsub("-",replacement="", off_db$Player)
+off_db$Player <- gsub("　",replacement="", off_db$Player)
+off_db$Player <- gsub("F",replacement="", off_db$Player)
+off_db$Player <- gsub("代跑",replacement="", off_db$Player)
+off_db$Player <- gsub("PH",replacement="", off_db$Player)
+off_db$Player <- gsub("右外野",replacement="", off_db$Player)
+off_db$Player <- gsub("左外野",replacement="", off_db$Player)
+off_db$Player <- gsub("目前比數",replacement="", off_db$Player)
+off_db$Player <- gsub("中外野",replacement="", off_db$Player)
+off_db$Player <- gsub("最終比數",replacement="", off_db$Player)
+off_db$Player <- gsub("外野手",replacement="", off_db$Player)
+
 saveRDS(off_db,"D:/cpbl_project/temp/off_db.RDS")
