@@ -540,3 +540,4 @@ IBP = round(Bases/EB,digits=3)
 player_number_of_times <- data.frame(Name,Opp,Bases,EB,IB,OA,IBP)
 
 View(player_number_of_times)
+

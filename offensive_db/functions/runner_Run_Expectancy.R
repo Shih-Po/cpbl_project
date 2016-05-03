@@ -22,9 +22,9 @@
 #------------------------------------------------------------------------------------------
 
 library(dplyr)
-off_db <- read.csv(file("C:/Users/Student/Desktop/output_1050503.csv", encoding="big5"), 
-                   header = TRUE, sep = "," ,stringsAsFactors = FALSE)
-
+# off_db <- read.csv(file("C:/Users/Student/Desktop/output_1050503.csv", encoding="big5"), 
+#                    header = TRUE, sep = "," ,stringsAsFactors = FALSE)
+off_db <- readRDS("C:/Users/Student/Desktop/off_db.RDS")
 # 1. 設定
 # 1-1. BASIC(全聯盟):  (壘包出局情境為 1~24, 且後續得分為 0~100 的資料列)
 odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !(Player == ""))
