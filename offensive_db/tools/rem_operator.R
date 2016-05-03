@@ -1,10 +1,13 @@
 library(dplyr)
-off_db <- read.csv(file("/Users/farmereric/Documents/Others/output042303.csv", encoding="big5"), 
-                   header = TRUE, sep = "," ,stringsAsFactors = FALSE)
+# off_db <- read.csv(file("D:/cpbl_project/temp/1_180.csv", encoding="big5"), 
+#                    header = TRUE, sep = "," ,stringsAsFactors = FALSE)
+off_db <- readRDS("D:/cpbl_project/temp/off_db.RDS")
+
 
 # 1. 設定
 # 1-1. BASIC(全聯盟):  (壘包出局情境為 1~24, 且後續得分為 0~100 的資料列)
 odb_rtype <- off_db %>% filter(rem_type %in% c(1:24), follow.up %in% c(0:100), !(Player == ""))
+
 
 # 1-2. TEAM: (客隊上半局為攻擊、主隊下半局為攻擊)
 # team <- "統一"
