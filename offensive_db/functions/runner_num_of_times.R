@@ -371,14 +371,14 @@ get2_2_left<-NULL
 get3_2_left<-NULL
 
   
-  get1_2_left<-c(get1_1_left,lapply( paste0("total1_","2","_","2","_","2nd","_player") , get),
+  get1_2_left<-c(get1_2_left,lapply( paste0("total1_","2","_","2","_","2nd","_player") , get),
                 lapply( paste0("total1_","2","_","2","_","3rd","_player") , get),
                 lapply( paste0("total1_","2","_","2","_","score","_player") , get),
                 lapply( paste0("total1_","2","_","2","_","OA","_player") , get))
-  get2_2_left<-c(get2_1_left,lapply( paste0("total2_","2","_","2","_","3rd","_player") , get),
+  get2_2_left<-c(get2_2_left,lapply( paste0("total2_","2","_","2","_","3rd","_player") , get),
                 lapply( paste0("total2_","2","_","2","_","score","_player") , get),
                 lapply( paste0("total2_","2","_","2","_","OA","_player") , get))
-  get3_2_left<-c(get3_1_left,lapply( paste0("total3_","2","_","2","_","3rd","_player") , get),
+  get3_2_left<-c(get3_2_left,lapply( paste0("total3_","2","_","2","_","3rd","_player") , get),
                 lapply( paste0("total3_","2","_","2","_","score","_player") , get))
   
 
