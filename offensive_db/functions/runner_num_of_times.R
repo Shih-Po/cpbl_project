@@ -72,15 +72,15 @@ player_opp<-NULL
 for (i in 0:2) {
   for (j in 1:4) {
     
-      player_opp<-c(player_opp,lapply( paste0("total1_",i,"_",j,"_","2nd","_player") , get),
-                    lapply( paste0("total1_",i,"_",j,"_","3rd","_player") , get),
-                    lapply( paste0("total1_",i,"_",j,"_","score","_player") , get),
-                    lapply( paste0("total1_",i,"_",j,"_","OA","_player") , get),
-                    lapply( paste0("total2_",i,"_",j,"_","3rd","_player") , get),
-                    lapply( paste0("total2_",i,"_",j,"_","score","_player") , get),
-                    lapply( paste0("total2_",i,"_",j,"_","OA","_player") , get),
-                    lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get),
-                    lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
+    player_opp<-c(player_opp,lapply( paste0("total1_",i,"_",j,"_","2nd","_player") , get),
+                  lapply( paste0("total1_",i,"_",j,"_","3rd","_player") , get),
+                  lapply( paste0("total1_",i,"_",j,"_","score","_player") , get),
+                  lapply( paste0("total1_",i,"_",j,"_","OA","_player") , get),
+                  lapply( paste0("total2_",i,"_",j,"_","3rd","_player") , get),
+                  lapply( paste0("total2_",i,"_",j,"_","score","_player") , get),
+                  lapply( paste0("total2_",i,"_",j,"_","OA","_player") , get),
+                  lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get),
+                  lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
     
   }
 }
@@ -96,12 +96,30 @@ for (i in 0:2) {
   for (j in 1:4) {
     get_1base<-c(get_1base,lapply( paste0("total1_",i,"_",j,"_","2nd","_player") , get),
                  lapply( paste0("total2_",i,"_",j,"_","3rd","_player") , get))
-                 #lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
+    #lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
   }
-  }
+}
 
 get_1base_players <- as.data.frame(unlist(get_1base)%>%table())
 colnames(get_1base_players) <- c("name","opp_total")
+
+#---------------------------------------------------------
+#　
+more_than_EB<-NULL
+
+for (i in 0:2) {
+  for (j in 1:4) {
+    more_than_EB<-c(more_than_EB,lapply( paste0("total1_",i,"_",j,"_","3rd","_player") , get),
+                    lapply( paste0("total1_",i,"_",j,"_","score","_player") , get),
+                    lapply( paste0("total2_",i,"_",j,"_","score","_player") , get),
+                    lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
+    #lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
+  }
+}
+
+more_than_EB <- as.data.frame(unlist(more_than_EB)%>%table())
+colnames(more_than_EB) <- c("name","more_EB")
+
 
 #------------------------------------------------------------------------------------------
 #跑者得兩個壘包
@@ -112,7 +130,7 @@ for (i in 0:2) {
     get_2base<-c(get_2base,lapply( paste0("total1_",i,"_",j,"_","3rd","_player") , get),
                  lapply( paste0("total2_",i,"_",j,"_","score","_player") , get),
                  lapply( paste0("total3_",i,"_",j,"_","3rd","_player") , get))
-                 #lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
+    #lapply( paste0("total3_",i,"_",j,"_","score","_player") , get))
   }
 }
 
@@ -141,18 +159,18 @@ get1_0_other<-NULL
 get2_0_other<-NULL
 get3_0_other<-NULL
 
-  get1_0_other<-c(get1_0_other,lapply( paste0("total1_","0","_","1","_","2nd","_player") , get),
-                 lapply( paste0("total1_","0","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total1_","0","_","1","_","score","_player") , get),
-                 lapply( paste0("total1_","0","_","1","_","OA","_player") , get))
-                 
-  get2_0_other<-c(get2_0_other,lapply( paste0("total2_","0","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total2_","0","_","1","_","score","_player") , get),
-                 lapply( paste0("total2_","0","_","1","_","OA","_player") , get))
-  
-  get3_0_other<-c(get3_0_other,lapply( paste0("total3_","0","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total3_","0","_","1","_","score","_player") , get))
-  
+get1_0_other<-c(get1_0_other,lapply( paste0("total1_","0","_","1","_","2nd","_player") , get),
+                lapply( paste0("total1_","0","_","1","_","3rd","_player") , get),
+                lapply( paste0("total1_","0","_","1","_","score","_player") , get),
+                lapply( paste0("total1_","0","_","1","_","OA","_player") , get))
+
+get2_0_other<-c(get2_0_other,lapply( paste0("total2_","0","_","1","_","3rd","_player") , get),
+                lapply( paste0("total2_","0","_","1","_","score","_player") , get),
+                lapply( paste0("total2_","0","_","1","_","OA","_player") , get))
+
+get3_0_other<-c(get3_0_other,lapply( paste0("total3_","0","_","1","_","3rd","_player") , get),
+                lapply( paste0("total3_","0","_","1","_","score","_player") , get))
+
 
 get1_0_other_EB <- as.data.frame(unlist(get1_0_other)%>%table())
 get2_0_other_EB <- as.data.frame(unlist(get2_0_other)%>%table())
@@ -167,19 +185,19 @@ get1_0_left<-NULL
 get2_0_left<-NULL
 get3_0_left<-NULL
 
-  
-  get1_0_left<-c(get1_0_left,lapply( paste0("total1_","0","_","2","_","2nd","_player") , get),
-                lapply( paste0("total1_","0","_","2","_","3rd","_player") , get),
-                lapply( paste0("total1_","0","_","2","_","score","_player") , get),
-                lapply( paste0("total1_","0","_","2","_","OA","_player") , get))
-  
-  get2_0_left<-c(get2_0_left,lapply( paste0("total2_","0","_","2","_","3rd","_player") , get),
-                lapply( paste0("total2_","0","_","2","_","score","_player") , get),
-                lapply( paste0("total2_","0","_","2","_","OA","_player") , get))
-  
-  get3_0_left<-c(get3_0_left,lapply( paste0("total3_","0","_","2","_","3rd","_player") , get),
-                lapply( paste0("total3_","0","_","2","_","score","_player") , get))
-  
+
+get1_0_left<-c(get1_0_left,lapply( paste0("total1_","0","_","2","_","2nd","_player") , get),
+               lapply( paste0("total1_","0","_","2","_","3rd","_player") , get),
+               lapply( paste0("total1_","0","_","2","_","score","_player") , get),
+               lapply( paste0("total1_","0","_","2","_","OA","_player") , get))
+
+get2_0_left<-c(get2_0_left,lapply( paste0("total2_","0","_","2","_","3rd","_player") , get),
+               lapply( paste0("total2_","0","_","2","_","score","_player") , get),
+               lapply( paste0("total2_","0","_","2","_","OA","_player") , get))
+
+get3_0_left<-c(get3_0_left,lapply( paste0("total3_","0","_","2","_","3rd","_player") , get),
+               lapply( paste0("total3_","0","_","2","_","score","_player") , get))
+
 
 get1_0_left_EB <- as.data.frame(unlist(get1_0_left)%>%table())
 get2_0_left_EB <- as.data.frame(unlist(get2_0_left)%>%table())
@@ -194,17 +212,17 @@ get1_0_center<-NULL
 get2_0_center<-NULL
 get3_0_center<-NULL
 
-  
-  get1_0_center<-c(get1_0_center,lapply( paste0("total1_","0","_","3","_","2nd","_player") , get),
-                  lapply( paste0("total1_","0","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total1_","0","_","3","_","score","_player") , get),
-                  lapply( paste0("total1_","0","_","3","_","OA","_player") , get))
-  get2_0_center<-c(get2_0_center,lapply( paste0("total2_","0","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total2_","0","_","3","_","score","_player") , get),
-                  lapply( paste0("total2_","0","_","3","_","OA","_player") , get))
-  get3_0_center<-c(get3_0_center,lapply( paste0("total3_","0","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total3_","0","_","3","_","score","_player") , get))
-  
+
+get1_0_center<-c(get1_0_center,lapply( paste0("total1_","0","_","3","_","2nd","_player") , get),
+                 lapply( paste0("total1_","0","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total1_","0","_","3","_","score","_player") , get),
+                 lapply( paste0("total1_","0","_","3","_","OA","_player") , get))
+get2_0_center<-c(get2_0_center,lapply( paste0("total2_","0","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total2_","0","_","3","_","score","_player") , get),
+                 lapply( paste0("total2_","0","_","3","_","OA","_player") , get))
+get3_0_center<-c(get3_0_center,lapply( paste0("total3_","0","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total3_","0","_","3","_","score","_player") , get))
+
 
 get1_0_center_EB <- as.data.frame(unlist(get1_0_center)%>%table())
 get2_0_center_EB <- as.data.frame(unlist(get2_0_center)%>%table())
@@ -219,17 +237,17 @@ get1_0_right<-NULL
 get2_0_right<-NULL
 get3_0_right<-NULL
 
-  
-  get1_0_right<-c(get1_0_right,lapply( paste0("total1_","0","_","4","_","2nd","_player") , get),
-                 lapply( paste0("total1_","0","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total1_","0","_","4","_","score","_player") , get),
-                 lapply( paste0("total1_","0","_","4","_","OA","_player") , get))
-  get2_0_right<-c(get2_0_right,lapply( paste0("total2_","0","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total2_","0","_","4","_","score","_player") , get),
-                 lapply( paste0("total2_","0","_","4","_","OA","_player") , get))
-  get3_0_right<-c(get3_0_right,lapply( paste0("total3_","0","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total3_","0","_","4","_","score","_player") , get))
-  
+
+get1_0_right<-c(get1_0_right,lapply( paste0("total1_","0","_","4","_","2nd","_player") , get),
+                lapply( paste0("total1_","0","_","4","_","3rd","_player") , get),
+                lapply( paste0("total1_","0","_","4","_","score","_player") , get),
+                lapply( paste0("total1_","0","_","4","_","OA","_player") , get))
+get2_0_right<-c(get2_0_right,lapply( paste0("total2_","0","_","4","_","3rd","_player") , get),
+                lapply( paste0("total2_","0","_","4","_","score","_player") , get),
+                lapply( paste0("total2_","0","_","4","_","OA","_player") , get))
+get3_0_right<-c(get3_0_right,lapply( paste0("total3_","0","_","4","_","3rd","_player") , get),
+                lapply( paste0("total3_","0","_","4","_","score","_player") , get))
+
 
 get1_0_right_EB <- as.data.frame(unlist(get1_0_right)%>%table())
 get2_0_right_EB <- as.data.frame(unlist(get2_0_right)%>%table())
@@ -245,17 +263,17 @@ get1_1_other<-NULL
 get2_1_other<-NULL
 get3_1_other<-NULL
 
-  
-  get1_1_other<-c(get1_1_other,lapply( paste0("total1_","1","_","1","_","2nd","_player") , get),
-                 lapply( paste0("total1_","1","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total1_","1","_","1","_","score","_player") , get),
-                 lapply( paste0("total1_","1","_","1","_","OA","_player") , get))
-  get2_1_other<-c(get2_1_other,lapply( paste0("total2_","1","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total2_","1","_","1","_","score","_player") , get),
-                 lapply( paste0("total2_","1","_","1","_","OA","_player") , get))
-  get3_1_other<-c(get3_1_other,lapply( paste0("total3_","1","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total3_","1","_","1","_","score","_player") , get))
-  
+
+get1_1_other<-c(get1_1_other,lapply( paste0("total1_","1","_","1","_","2nd","_player") , get),
+                lapply( paste0("total1_","1","_","1","_","3rd","_player") , get),
+                lapply( paste0("total1_","1","_","1","_","score","_player") , get),
+                lapply( paste0("total1_","1","_","1","_","OA","_player") , get))
+get2_1_other<-c(get2_1_other,lapply( paste0("total2_","1","_","1","_","3rd","_player") , get),
+                lapply( paste0("total2_","1","_","1","_","score","_player") , get),
+                lapply( paste0("total2_","1","_","1","_","OA","_player") , get))
+get3_1_other<-c(get3_1_other,lapply( paste0("total3_","1","_","1","_","3rd","_player") , get),
+                lapply( paste0("total3_","1","_","1","_","score","_player") , get))
+
 
 get1_1_other_EB <- as.data.frame(unlist(get1_1_other)%>%table())
 get2_1_other_EB <- as.data.frame(unlist(get2_1_other)%>%table())
@@ -269,17 +287,17 @@ colnames(get3_1_other_EB) <- c("name","opp_total")
 get1_1_left<-NULL
 get2_1_left<-NULL
 get3_1_left<-NULL
-  
-  get1_1_left<-c(get1_1_left,lapply( paste0("total1_","1","_","2","_","2nd","_player") , get),
-                lapply( paste0("total1_","1","_","2","_","3rd","_player") , get),
-                lapply( paste0("total1_","1","_","2","_","score","_player") , get),
-                lapply( paste0("total1_","1","_","2","_","OA","_player") , get))
-  get2_1_left<-c(get2_1_left,lapply( paste0("total2_","1","_","2","_","3rd","_player") , get),
-                lapply( paste0("total2_","1","_","2","_","score","_player") , get),
-                lapply( paste0("total2_","1","_","2","_","OA","_player") , get))
-  get3_1_left<-c(get3_1_left,lapply( paste0("total3_","1","_","2","_","3rd","_player") , get),
-                lapply( paste0("total3_","1","_","2","_","score","_player") , get))
-  
+
+get1_1_left<-c(get1_1_left,lapply( paste0("total1_","1","_","2","_","2nd","_player") , get),
+               lapply( paste0("total1_","1","_","2","_","3rd","_player") , get),
+               lapply( paste0("total1_","1","_","2","_","score","_player") , get),
+               lapply( paste0("total1_","1","_","2","_","OA","_player") , get))
+get2_1_left<-c(get2_1_left,lapply( paste0("total2_","1","_","2","_","3rd","_player") , get),
+               lapply( paste0("total2_","1","_","2","_","score","_player") , get),
+               lapply( paste0("total2_","1","_","2","_","OA","_player") , get))
+get3_1_left<-c(get3_1_left,lapply( paste0("total3_","1","_","2","_","3rd","_player") , get),
+               lapply( paste0("total3_","1","_","2","_","score","_player") , get))
+
 
 get1_1_left_EB <- as.data.frame(unlist(get1_1_left)%>%table())
 get2_1_left_EB <- as.data.frame(unlist(get2_1_left)%>%table())
@@ -294,17 +312,17 @@ get1_1_center<-NULL
 get2_1_center<-NULL
 get3_1_center<-NULL
 
-  
-  get1_1_center<-c(get1_1_center,lapply( paste0("total1_","1","_","3","_","2nd","_player") , get),
-                  lapply( paste0("total1_","1","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total1_","1","_","3","_","score","_player") , get),
-                  lapply( paste0("total1_","1","_","3","_","OA","_player") , get))
-  get2_1_center<-c(get2_1_center,lapply( paste0("total2_","1","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total2_","1","_","3","_","score","_player") , get),
-                  lapply( paste0("total2_","1","_","3","_","OA","_player") , get))
-  get3_1_center<-c(get3_1_center,lapply( paste0("total3_","1","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total3_","1","_","3","_","score","_player") , get))
-  
+
+get1_1_center<-c(get1_1_center,lapply( paste0("total1_","1","_","3","_","2nd","_player") , get),
+                 lapply( paste0("total1_","1","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total1_","1","_","3","_","score","_player") , get),
+                 lapply( paste0("total1_","1","_","3","_","OA","_player") , get))
+get2_1_center<-c(get2_1_center,lapply( paste0("total2_","1","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total2_","1","_","3","_","score","_player") , get),
+                 lapply( paste0("total2_","1","_","3","_","OA","_player") , get))
+get3_1_center<-c(get3_1_center,lapply( paste0("total3_","1","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total3_","1","_","3","_","score","_player") , get))
+
 
 get1_1_center_EB <- as.data.frame(unlist(get1_1_center)%>%table())
 get2_1_center_EB <- as.data.frame(unlist(get2_1_center)%>%table())
@@ -319,16 +337,16 @@ get1_1_right<-NULL
 get2_1_right<-NULL
 get3_1_right<-NULL
 
-  
-  get1_1_right<-c(get1_1_right,lapply( paste0("total1_","1","_","4","_","2nd","_player") , get),
-                 lapply( paste0("total1_","1","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total1_","1","_","4","_","score","_player") , get),
-                 lapply( paste0("total1_","1","_","4","_","OA","_player") , get))
-  get2_1_right<-c(get2_1_right,lapply( paste0("total2_","1","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total2_","1","_","4","_","score","_player") , get),
-                 lapply( paste0("total2_","1","_","4","_","OA","_player") , get))
-  get3_1_right<-c(get3_1_right,lapply( paste0("total3_","1","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total3_","1","_","4","_","score","_player") , get))
+
+get1_1_right<-c(get1_1_right,lapply( paste0("total1_","1","_","4","_","2nd","_player") , get),
+                lapply( paste0("total1_","1","_","4","_","3rd","_player") , get),
+                lapply( paste0("total1_","1","_","4","_","score","_player") , get),
+                lapply( paste0("total1_","1","_","4","_","OA","_player") , get))
+get2_1_right<-c(get2_1_right,lapply( paste0("total2_","1","_","4","_","3rd","_player") , get),
+                lapply( paste0("total2_","1","_","4","_","score","_player") , get),
+                lapply( paste0("total2_","1","_","4","_","OA","_player") , get))
+get3_1_right<-c(get3_1_right,lapply( paste0("total3_","1","_","4","_","3rd","_player") , get),
+                lapply( paste0("total3_","1","_","4","_","score","_player") , get))
 
 
 get1_1_right_EB <- as.data.frame(unlist(get1_1_right)%>%table())
@@ -345,17 +363,17 @@ get1_2_other<-NULL
 get2_2_other<-NULL
 get3_2_other<-NULL
 
-  
-  get1_2_other<-c(get1_2_other,lapply( paste0("total1_","2","_","1","_","2nd","_player") , get),
-                 lapply( paste0("total1_","2","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total1_","2","_","1","_","score","_player") , get),
-                 lapply( paste0("total1_","2","_","1","_","OA","_player") , get))
-  get2_2_other<-c(get2_2_other,lapply( paste0("total2_","2","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total2_","2","_","1","_","score","_player") , get),
-                 lapply( paste0("total2_","2","_","1","_","OA","_player") , get))
-  get3_2_other<-c(get3_2_other,lapply( paste0("total3_","2","_","1","_","3rd","_player") , get),
-                 lapply( paste0("total3_","2","_","1","_","score","_player") , get))
-  
+
+get1_2_other<-c(get1_2_other,lapply( paste0("total1_","2","_","1","_","2nd","_player") , get),
+                lapply( paste0("total1_","2","_","1","_","3rd","_player") , get),
+                lapply( paste0("total1_","2","_","1","_","score","_player") , get),
+                lapply( paste0("total1_","2","_","1","_","OA","_player") , get))
+get2_2_other<-c(get2_2_other,lapply( paste0("total2_","2","_","1","_","3rd","_player") , get),
+                lapply( paste0("total2_","2","_","1","_","score","_player") , get),
+                lapply( paste0("total2_","2","_","1","_","OA","_player") , get))
+get3_2_other<-c(get3_2_other,lapply( paste0("total3_","2","_","1","_","3rd","_player") , get),
+                lapply( paste0("total3_","2","_","1","_","score","_player") , get))
+
 
 get1_2_other_EB <- as.data.frame(unlist(get1_2_other)%>%table())
 get2_2_other_EB <- as.data.frame(unlist(get2_2_other)%>%table())
@@ -370,17 +388,17 @@ get1_2_left<-NULL
 get2_2_left<-NULL
 get3_2_left<-NULL
 
-  
-  get1_2_left<-c(get1_2_left,lapply( paste0("total1_","2","_","2","_","2nd","_player") , get),
-                lapply( paste0("total1_","2","_","2","_","3rd","_player") , get),
-                lapply( paste0("total1_","2","_","2","_","score","_player") , get),
-                lapply( paste0("total1_","2","_","2","_","OA","_player") , get))
-  get2_2_left<-c(get2_2_left,lapply( paste0("total2_","2","_","2","_","3rd","_player") , get),
-                lapply( paste0("total2_","2","_","2","_","score","_player") , get),
-                lapply( paste0("total2_","2","_","2","_","OA","_player") , get))
-  get3_2_left<-c(get3_2_left,lapply( paste0("total3_","2","_","2","_","3rd","_player") , get),
-                lapply( paste0("total3_","2","_","2","_","score","_player") , get))
-  
+
+get1_2_left<-c(get1_2_left,lapply( paste0("total1_","2","_","2","_","2nd","_player") , get),
+               lapply( paste0("total1_","2","_","2","_","3rd","_player") , get),
+               lapply( paste0("total1_","2","_","2","_","score","_player") , get),
+               lapply( paste0("total1_","2","_","2","_","OA","_player") , get))
+get2_2_left<-c(get2_2_left,lapply( paste0("total2_","2","_","2","_","3rd","_player") , get),
+               lapply( paste0("total2_","2","_","2","_","score","_player") , get),
+               lapply( paste0("total2_","2","_","2","_","OA","_player") , get))
+get3_2_left<-c(get3_2_left,lapply( paste0("total3_","2","_","2","_","3rd","_player") , get),
+               lapply( paste0("total3_","2","_","2","_","score","_player") , get))
+
 
 get1_2_left_EB <- as.data.frame(unlist(get1_2_left)%>%table())
 get2_2_left_EB <- as.data.frame(unlist(get2_2_left)%>%table())
@@ -395,17 +413,17 @@ get1_2_center<-NULL
 get2_2_center<-NULL
 get3_2_center<-NULL
 
-  
-  get1_2_center<-c(get1_2_center,lapply( paste0("total1_","2","_","3","_","2nd","_player") , get),
-                  lapply( paste0("total1_","2","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total1_","2","_","3","_","score","_player") , get),
-                  lapply( paste0("total1_","2","_","3","_","OA","_player") , get))
-  get2_2_center<-c(get2_2_center,lapply( paste0("total2_","2","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total2_","2","_","3","_","score","_player") , get),
-                  lapply( paste0("total2_","2","_","3","_","OA","_player") , get))
-  get3_2_center<-c(get3_2_center,lapply( paste0("total3_","2","_","3","_","3rd","_player") , get),
-                  lapply( paste0("total3_","2","_","3","_","score","_player") , get))
-  
+
+get1_2_center<-c(get1_2_center,lapply( paste0("total1_","2","_","3","_","2nd","_player") , get),
+                 lapply( paste0("total1_","2","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total1_","2","_","3","_","score","_player") , get),
+                 lapply( paste0("total1_","2","_","3","_","OA","_player") , get))
+get2_2_center<-c(get2_2_center,lapply( paste0("total2_","2","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total2_","2","_","3","_","score","_player") , get),
+                 lapply( paste0("total2_","2","_","3","_","OA","_player") , get))
+get3_2_center<-c(get3_2_center,lapply( paste0("total3_","2","_","3","_","3rd","_player") , get),
+                 lapply( paste0("total3_","2","_","3","_","score","_player") , get))
+
 
 get1_2_center_EB <- as.data.frame(unlist(get1_2_center)%>%table())
 get2_2_center_EB <- as.data.frame(unlist(get2_2_center)%>%table())
@@ -420,17 +438,17 @@ get1_2_right<-NULL
 get2_2_right<-NULL
 get3_2_right<-NULL
 
-  
-  get1_2_right<-c(get1_2_right,lapply( paste0("total1_","2","_","4","_","2nd","_player") , get),
-                 lapply( paste0("total1_","2","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total1_","2","_","4","_","score","_player") , get),
-                 lapply( paste0("total1_","2","_","4","_","OA","_player") , get))
-  get2_2_right<-c(get2_2_right,lapply( paste0("total2_","2","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total2_","2","_","4","_","score","_player") , get),
-                 lapply( paste0("total2_","2","_","4","_","OA","_player") , get))
-  get3_2_right<-c(get3_2_right,lapply( paste0("total3_","2","_","4","_","3rd","_player") , get),
-                 lapply( paste0("total3_","2","_","4","_","score","_player") , get))
-  
+
+get1_2_right<-c(get1_2_right,lapply( paste0("total1_","2","_","4","_","2nd","_player") , get),
+                lapply( paste0("total1_","2","_","4","_","3rd","_player") , get),
+                lapply( paste0("total1_","2","_","4","_","score","_player") , get),
+                lapply( paste0("total1_","2","_","4","_","OA","_player") , get))
+get2_2_right<-c(get2_2_right,lapply( paste0("total2_","2","_","4","_","3rd","_player") , get),
+                lapply( paste0("total2_","2","_","4","_","score","_player") , get),
+                lapply( paste0("total2_","2","_","4","_","OA","_player") , get))
+get3_2_right<-c(get3_2_right,lapply( paste0("total3_","2","_","4","_","3rd","_player") , get),
+                lapply( paste0("total3_","2","_","4","_","score","_player") , get))
+
 
 get1_2_right_EB <- as.data.frame(unlist(get1_2_right)%>%table())
 get2_2_right_EB <- as.data.frame(unlist(get2_2_right)%>%table())
@@ -460,35 +478,35 @@ colnames(get_out_players) <- c("name","opp_total")
 #合併所有計算所需表格
 #get3_0_other_EB, get3_2_other_EB, get3_1_other_EB,
 runner_number_of_times <- Reduce(function(x, y) merge(x, y , by="name" , all = T ), 
-       list(players_opp, get_1base_players, get_2bases_players, 
-            get_3bases_players, get_out_players, get1_0_other_EB,
-            get1_0_left_EB, get1_0_center_EB, get1_0_right_EB,
-            get1_1_other_EB, get1_1_left_EB, get1_1_center_EB,
-            get1_1_right_EB, get1_2_other_EB, get1_2_left_EB,
-            get1_2_center_EB, get1_2_right_EB, get2_0_other_EB,
-            get2_0_left_EB, get2_0_center_EB, get2_0_right_EB,
-            get2_1_other_EB, get2_1_left_EB, get2_1_center_EB,
-            get2_1_right_EB, get2_2_other_EB, get2_2_left_EB,
-            get2_2_center_EB, get2_2_right_EB, 
-            get3_0_left_EB, get3_0_center_EB, get3_0_right_EB,
-                            get3_1_left_EB, get3_1_center_EB,
-            get3_1_right_EB,                 get3_2_left_EB,
-            get3_2_center_EB, get3_2_right_EB))
+                                 list(players_opp, get_1base_players, get_2bases_players, 
+                                      get_3bases_players, get_out_players, get1_0_other_EB,
+                                      get1_0_left_EB, get1_0_center_EB, get1_0_right_EB,
+                                      get1_1_other_EB, get1_1_left_EB, get1_1_center_EB,
+                                      get1_1_right_EB, get1_2_other_EB, get1_2_left_EB,
+                                      get1_2_center_EB, get1_2_right_EB, get2_0_other_EB,
+                                      get2_0_left_EB, get2_0_center_EB, get2_0_right_EB,
+                                      get2_1_other_EB, get2_1_left_EB, get2_1_center_EB,
+                                      get2_1_right_EB, get2_2_other_EB, get2_2_left_EB,
+                                      get2_2_center_EB, get2_2_right_EB, 
+                                      get3_0_left_EB, get3_0_center_EB, get3_0_right_EB,
+                                      get3_1_left_EB, get3_1_center_EB,
+                                      get3_1_right_EB,                 get3_2_left_EB,
+                                      get3_2_center_EB, get3_2_right_EB,more_than_EB))
 
 colnames(runner_number_of_times) <- c("name","players_opp", "get_1base_players", "get_2bases_players", 
-                               "get_3bases_players", "get_out_players", "get1_0_other_EB",
-                               "get1_0_left_EB", "get1_0_center_EB", "get1_0_right_EB",
-                               "get1_1_other_EB", "get1_1_left_EB", "get1_1_center_EB",
-                               "get1_1_right_EB", "get1_2_other_EB","get1_2_left_EB",
-                               "get1_2_center_EB","get1_2_right_EB", "get2_0_other_EB",
-                               "get2_0_left_EB", "get2_0_center_EB", "get2_0_right_EB",
-                               "get2_1_other_EB", "get2_1_left_EB", "get2_1_center_EB",
-                               "get2_1_right_EB", "get2_2_other_EB", "get2_2_left_EB",
-                               "get2_2_center_EB", "get2_2_right_EB", 
-                               "get3_0_left_EB", "get3_0_center_EB", "get3_0_right_EB",
-                               "get3_1_left_EB", "get3_1_center_EB",
-                               "get3_1_right_EB",                 "get3_2_left_EB",
-                               "get3_2_center_EB", "get3_2_right_EB")
+                                      "get_3bases_players", "get_out_players", "get1_0_other_EB",
+                                      "get1_0_left_EB", "get1_0_center_EB", "get1_0_right_EB",
+                                      "get1_1_other_EB", "get1_1_left_EB", "get1_1_center_EB",
+                                      "get1_1_right_EB", "get1_2_other_EB","get1_2_left_EB",
+                                      "get1_2_center_EB","get1_2_right_EB", "get2_0_other_EB",
+                                      "get2_0_left_EB", "get2_0_center_EB", "get2_0_right_EB",
+                                      "get2_1_other_EB", "get2_1_left_EB", "get2_1_center_EB",
+                                      "get2_1_right_EB", "get2_2_other_EB", "get2_2_left_EB",
+                                      "get2_2_center_EB", "get2_2_right_EB", 
+                                      "get3_0_left_EB", "get3_0_center_EB", "get3_0_right_EB",
+                                      "get3_1_left_EB", "get3_1_center_EB",
+                                      "get3_1_right_EB",                 "get3_2_left_EB",
+                                      "get3_2_center_EB", "get3_2_right_EB","more_than_EB")
 ##----------------------------------------------------------------------------------------
 
 #把runner_number_of_times表裡NA值變為0
@@ -511,33 +529,60 @@ Bases = runner_number_of_times$get_1base_players + 2 * runner_number_of_times$ge
 #opp3_EB_2_1 * runner_number_of_times$get3_2_other_EB +
 
 EB =  opp1_EB_0_1 * runner_number_of_times$get1_0_other_EB + opp1_EB_0_2 * runner_number_of_times$get1_0_left_EB + 
-      opp1_EB_0_3 * runner_number_of_times$get1_0_center_EB + opp1_EB_0_4 * runner_number_of_times$get1_0_right_EB + 
-      opp1_EB_1_1 * runner_number_of_times$get1_1_other_EB + opp1_EB_1_2 * runner_number_of_times$get1_1_left_EB + 
-      opp1_EB_1_3 * runner_number_of_times$get1_1_center_EB + opp1_EB_1_4 * runner_number_of_times$get1_1_right_EB + 
-      opp1_EB_2_1 * runner_number_of_times$get1_2_other_EB + opp1_EB_2_2 * runner_number_of_times$get1_2_left_EB + 
-      opp1_EB_2_3 * runner_number_of_times$get1_2_center_EB + opp1_EB_2_4 * runner_number_of_times$get1_2_right_EB +
-      opp2_EB_0_1 * runner_number_of_times$get2_0_other_EB + opp2_EB_0_2 * runner_number_of_times$get2_0_left_EB + 
-      opp2_EB_0_3 * runner_number_of_times$get2_0_center_EB + opp2_EB_0_4 * runner_number_of_times$get2_0_right_EB + 
-      opp2_EB_1_1 * runner_number_of_times$get2_1_other_EB + opp2_EB_1_2 * runner_number_of_times$get2_1_left_EB + 
-      opp2_EB_1_3 * runner_number_of_times$get2_1_center_EB + opp2_EB_1_4 * runner_number_of_times$get2_1_right_EB + 
-      opp2_EB_2_1 * runner_number_of_times$get2_2_other_EB + opp2_EB_2_2 * runner_number_of_times$get2_2_left_EB + 
-      opp2_EB_2_3 * runner_number_of_times$get2_2_center_EB + opp2_EB_2_4 * runner_number_of_times$get2_2_right_EB +
-      opp3_EB_0_2 * runner_number_of_times$get3_0_left_EB + 
-      opp3_EB_0_3 * runner_number_of_times$get3_0_center_EB + opp3_EB_0_4 * runner_number_of_times$get3_0_right_EB + 
-      opp3_EB_1_2 * runner_number_of_times$get3_1_left_EB + 
-      opp3_EB_1_3 * runner_number_of_times$get3_1_center_EB + opp3_EB_1_4 * runner_number_of_times$get3_1_right_EB + 
-      opp3_EB_2_2 * runner_number_of_times$get3_2_left_EB + 
-      opp3_EB_2_3 * runner_number_of_times$get3_2_center_EB + opp3_EB_2_4 * runner_number_of_times$get3_2_right_EB
-  
-EB = round(EB,digits=0)
+  opp1_EB_0_3 * runner_number_of_times$get1_0_center_EB + opp1_EB_0_4 * runner_number_of_times$get1_0_right_EB + 
+  opp1_EB_1_1 * runner_number_of_times$get1_1_other_EB + opp1_EB_1_2 * runner_number_of_times$get1_1_left_EB + 
+  opp1_EB_1_3 * runner_number_of_times$get1_1_center_EB + opp1_EB_1_4 * runner_number_of_times$get1_1_right_EB + 
+  opp1_EB_2_1 * runner_number_of_times$get1_2_other_EB + opp1_EB_2_2 * runner_number_of_times$get1_2_left_EB + 
+  opp1_EB_2_3 * runner_number_of_times$get1_2_center_EB + opp1_EB_2_4 * runner_number_of_times$get1_2_right_EB +
+  opp2_EB_0_1 * runner_number_of_times$get2_0_other_EB + opp2_EB_0_2 * runner_number_of_times$get2_0_left_EB + 
+  opp2_EB_0_3 * runner_number_of_times$get2_0_center_EB + opp2_EB_0_4 * runner_number_of_times$get2_0_right_EB + 
+  opp2_EB_1_1 * runner_number_of_times$get2_1_other_EB + opp2_EB_1_2 * runner_number_of_times$get2_1_left_EB + 
+  opp2_EB_1_3 * runner_number_of_times$get2_1_center_EB + opp2_EB_1_4 * runner_number_of_times$get2_1_right_EB + 
+  opp2_EB_2_1 * runner_number_of_times$get2_2_other_EB + opp2_EB_2_2 * runner_number_of_times$get2_2_left_EB + 
+  opp2_EB_2_3 * runner_number_of_times$get2_2_center_EB + opp2_EB_2_4 * runner_number_of_times$get2_2_right_EB +
+  opp3_EB_0_2 * runner_number_of_times$get3_0_left_EB + 
+  opp3_EB_0_3 * runner_number_of_times$get3_0_center_EB + opp3_EB_0_4 * runner_number_of_times$get3_0_right_EB + 
+  opp3_EB_1_2 * runner_number_of_times$get3_1_left_EB + 
+  opp3_EB_1_3 * runner_number_of_times$get3_1_center_EB + opp3_EB_1_4 * runner_number_of_times$get3_1_right_EB + 
+  opp3_EB_2_2 * runner_number_of_times$get3_2_left_EB + 
+  opp3_EB_2_3 * runner_number_of_times$get3_2_center_EB + opp3_EB_2_4 * runner_number_of_times$get3_2_right_EB
+
+EB2 = 1*(runner_number_of_times$get1_0_other_EB + runner_number_of_times$get1_0_left_EB + 
+           runner_number_of_times$get1_0_center_EB + runner_number_of_times$get1_0_right_EB + 
+           runner_number_of_times$get1_1_other_EB +  runner_number_of_times$get1_1_left_EB + 
+           runner_number_of_times$get1_1_center_EB + runner_number_of_times$get1_1_right_EB + 
+           runner_number_of_times$get1_2_other_EB + runner_number_of_times$get1_2_left_EB + 
+           runner_number_of_times$get1_2_center_EB +  runner_number_of_times$get1_2_right_EB) +
+  1*(runner_number_of_times$get2_0_other_EB + runner_number_of_times$get2_0_left_EB + 
+       runner_number_of_times$get2_0_center_EB + runner_number_of_times$get2_0_right_EB + 
+       runner_number_of_times$get2_1_other_EB + runner_number_of_times$get2_1_left_EB + 
+       runner_number_of_times$get2_1_center_EB + runner_number_of_times$get2_1_right_EB + 
+       runner_number_of_times$get2_2_other_EB +  runner_number_of_times$get2_2_left_EB + 
+       runner_number_of_times$get2_2_center_EB + runner_number_of_times$get2_2_right_EB) +
+  2*(runner_number_of_times$get3_0_left_EB + 
+       runner_number_of_times$get3_0_center_EB + runner_number_of_times$get3_0_right_EB + 
+       runner_number_of_times$get3_1_left_EB + 
+       runner_number_of_times$get3_1_center_EB + runner_number_of_times$get3_1_right_EB + 
+       runner_number_of_times$get3_2_left_EB + 
+       runner_number_of_times$get3_2_center_EB + runner_number_of_times$get3_2_right_EB)
+
+
+
 
 IB = Bases - EB
 
+IB2 = Bases - EB2
+
 OA = runner_number_of_times$get_out_players
 
-IBP = round(Bases/EB,digits=3)
+IBP = Bases/EB
 
-player_number_of_times <- data.frame(Name,Opp,Bases,EB,IB,OA,IBP)
+IBP2 = Bases/EB2
+
+more_EB = runner_number_of_times$more_than_EB
+
+player_number_of_times <- data.frame(Name,Opp,Bases,EB,EB2,IB,IB2,OA,IBP,IBP2,more_EB)
 
 View(player_number_of_times)
+
 
