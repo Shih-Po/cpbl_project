@@ -5,8 +5,8 @@
  3. 計算器：跑壘積極度計算器
 
 
-## 結構化表格（追蹤壘包出局數）
-### main_fullseason.R 
+### 1. 結構化表格（追蹤壘包出局數）
+#### main_fullseason.R 
 記錄計算得分矩陣與跑壘積極度的資料，追蹤每一筆 log_row 中的壘包出局數，以得分矩陣的情境區分開。
 
 - input: 育修完成換行的 log 檔
@@ -18,11 +18,11 @@ off_db 欄位解析：
  3. player: 此次情況要行動的球員（這一位球員的行動結果會暫存在 dummy_list 中，存到下一次情況時的欄位中）
 
 
-## 得分矩陣
-### tools_rem/rem_operator_function
+### 2. 得分矩陣計算
+#### tools_rem/rem_operator_function
  - input: 手動清理過後的結構化表格（注意這裡使用的結構化表格是 judy 整理過後，經由組員們人工校正的完整版）
  - output: 聯盟得分矩陣、球隊得分矩陣、球員得分矩陣
 
-## 跑壘積極度
-### tools_ebr/
+### 3. 跑壘積極度計算
+#### tools_ebr/
 待補 
