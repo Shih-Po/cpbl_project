@@ -79,11 +79,11 @@ rem_operator_p = function(t, p) {
   return(re_matrix)
 }
 
-# ------------------------------------------------------------------------------------------
-# t = 1  算得分期望值, t = 2 算次數
+# exmaple ---------------------------------------------------------------------------------------
+# 1. 聯盟： t = 1  算得分期望值, t = 2 算次數
 rem_operator(1)
 rem_operator(2)
-# 參數 team 輸入隊名：統一、兄弟、義大、桃猿
+# 2. 球隊：參數 team 輸入隊名：統一、兄弟、義大、桃猿
 rem_team <- lapply(c("統一", "兄弟", "義大", "桃猿"), function(team) { rem_operator_team(1, team) })
 names(rem_team) <- c("統一", "兄弟", "義大", "桃猿")
 ram_team <- lapply(c("統一", "兄弟", "義大", "桃猿"), function(team) { rem_operator_team(2, team) })
@@ -92,6 +92,6 @@ rem_team %>% View()
 
 write.csv(rem_team, file = "D:/cpbl_project/output/2014/rem_team.csv")
 
-# 參數 p 輸入球員名字
+# 3. 球員： 參數 p 輸入球員名字
 rem_operator_p(1, p = "彭政閔")
 
