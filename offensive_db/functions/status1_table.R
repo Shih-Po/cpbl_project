@@ -4,6 +4,7 @@ cpbl_table <- read.csv(file("/Users/farmereric/Documents/Others/output042303.csv
 
 total1 <- 0
 
+#宣告變數
 #零出局
 total1_0_other <- total1_0_other_OA <- total1_0_other_2nd <- total1_0_other_3rd <- total1_0_other_score <- 0
 total1_0_left <- total1_0_left_OA <- total1_0_left_2nd <- total1_0_left_3rd <- total1_0_left_score <- 0
@@ -41,10 +42,12 @@ total1_2_4_OA_player <- total1_2_4_2nd_player <- total1_2_4_3rd_player <- total1
 for (i in 1:nrow(cpbl_table)){
   table_row <- cpbl_table[i,]
   # j <- i + 1
+  #一壘有人，二三壘無人，一壘安打狀況
   if (is.na(table_row$base1) !=TRUE && is.na(table_row$base2) == TRUE && is.na(table_row$base3) == TRUE &&
       table_row$result %in% c("一壘安打", "左外野安打", "中外野安打", "右外野安打", 
                               "穿越安打", "平飛安打", "內野安打", "中間方向安打", "德州安打")){
     
+    #第一種情況總數量
     total1 = total1 + 1 
     
     if (table_row$out == "零出局" && table_row$direction == "內"){

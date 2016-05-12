@@ -54,6 +54,7 @@ main_single_game = function(num_logfile) {
   dummy_list <- hit3_function(dummy_list, log_row)
   dummy_list <- homerun_function(dummy_list, log_row)
   dummy_list <- walk_function(dummy_list, log_row)
+  dummy_list <- sacrificehit_function(dummy_list, log_row)
   
   # 出局
   dummy_list <- outs_function(dummy_list, log_row)

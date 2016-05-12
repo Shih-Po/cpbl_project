@@ -18,7 +18,7 @@ homerun_function = function(dummy_list, log_row) {
       if (rem_type %in% c(1,2,3)) {
         # 得一分
         # 1B,2B,3B,rem_type no change
-        player
+        
         
       } else if (rem_type %in% c(4,5,6)) {
         # 得兩分

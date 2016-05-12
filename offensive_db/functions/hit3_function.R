@@ -13,7 +13,7 @@ hit3_function = function(dummy_list, log_row) {
     player <- substr (log_row, regexpr("：",log_row)-3, regexpr("：",log_row)-1 )
     
     
-    # 依情境辦事
+    # 依得分矩陣24種情境辦事
     # 三壘安打
     if (rem_type %in% c(1,2,3)) {
       # empty to 3B
